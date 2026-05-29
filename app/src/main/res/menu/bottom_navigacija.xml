@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btn_n_nazaj"
+        android:enabled="true"
+        android:icon="@drawable/arrow_back_24"
+        android:title="@string/navigacija_nazaj"/>
+    <item
+        android:id="@+id/btn_n_domov"
+        android:enabled="true"
+        android:icon="@drawable/home_24"
+        android:title="@string/navigacija_domov"/>
+    <item
+        android:id="@+id/btn_n_naprej"
+        android:enabled="true"
+        android:icon="@drawable/arrow_forward_24"
+        android:title="@string/navigacija_naprej"/>
+    <!--<item
+        android:id="@+id/btn_n_potrdi"
+        android:enabled="true"
+        android:icon="@drawable/check_24"
+        android:title="@string/navigacija_potrdi"/>-->
+</menu>

@@ -30,61 +30,71 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-
-        <!-- your content here -->
+        <!--Zgornje okno vsebine-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center">
+            <TextView
+                android:id="@+id/polje_besedilo_shrani"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
         </LinearLayout>
 
+        <!--Spodnje okno vsebine-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/polje_knjiga_shrani"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btn_m_citati"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:text="@string/text_citati" />
-
-                    <Button
-                        android:id="@+id/btn_m_kazalo"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:text="@string/text_kazalo" />
-                </LinearLayout>
-
-                <LinearLayout
+                    android:layout_height="45dp"
+                    android:hint="@string/zacasni_napis_knjiga"
+                    android:inputType="text"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/polje_avtor_shrani"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="45dp"
+                    android:hint="@string/zacasni_napis_avtor"
+                    android:inputType="text"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/polje_leto_shrani"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:hint="@string/zacasni_napis_leto"
+                    android:inputType="text"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/btn_m_slikaj"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:text="@string/text_slikaj" />
-                </LinearLayout>
+                <Button
+                    android:id="@+id/btn_s_shrani"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/navigacija_shrani" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -101,3 +111,4 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

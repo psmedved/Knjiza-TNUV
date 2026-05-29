@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">Knjiza</string>
+    <string name="datoteka_citati">ShranjeniCitati.json</string>
+    <string name="datoteka_kazala">ShranjenaKazala.json</string>
+    <string name="datoteka_knjiga">ShranjeneKnjige.json</string>
+    <string name="text_kazalo">Kazalo</string>
+    <string name="text_citati">Citati</string>
+    <string name="text_slikaj">Slikaj</string>
+    <string name="text_pretvori">Pretvori</string>
+    <string name="text_izberi">Izberi</string>
+    <string name="text_shrani">Shrani</string>
+    <string name="text_knjige">Prebrane knjige</string>
+    <string name="text_naslov_citat">Shranjeno</string>
+    <string name="text_sporocilo_citat">Citat je shranjen.</string>
+    <string name="text_sporocilo_kazalo">Kazalo je shranjeno.</string>
+    <string name="text_sporocilo_knjiga">Prebrana knjiga je shranjena.</string>
+    <string name="text_naslov_kazalo">Dodaj kazalo strani</string>
+    <string name="text_naslov_knjiga">Dodaj prebrano knjigo</string>
+    <string name="navigacija_nazaj">Nazaj</string>
+    <string name="navigacija_domov">Domov</string>
+    <string name="navigacija_potrdi">Ok</string>
+    <string name="navigacija_shrani">Shrani</string>
+    <string name="navigacija_naprej">Naprej</string>
+    <string name="navigacija_ponovi">Ponovno slikaj</string>
+    <string name="navigacija_nadaljuj">Nadaljuj</string>
+    <string name="navigacija_dodaj_kazalo">Dodaj</string>
+    <string name="navigacija_dodaj_knjigo">Dodaj</string>
+    <string name="navigacija_preklici">Prekliči</string>
+    <string name="navigacija_nov_citat">Nov citat</string>
+    <string name="zacasni_napis_komentar">Vpišite komentar. (opcijsko)</string>
+    <string name="zacasni_napis_knjiga">Vpišite naslov knjige.</string>
+    <string name="zacasni_napis_avtor">Vpišite ime avtorja.</string>
+    <string name="zacasni_napis_leto">Vpišite letnico izzida. (opcijsko)</string>
+    <string name="zacasni_napis_stran">Vpišite številko prebrane strani.</string>
 </resources>
