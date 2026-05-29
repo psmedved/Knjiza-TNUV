@@ -2,8 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
     <color name="ozadje">#FFFDC7</color>
+    <color name="rumena">#FFFB91</color>
     <color name="gumbi">#EDC001</color>
+    <color name="ikoneOmogocene">#364A34</color> <!-- #60A790 ali #364A34-->
+    <color name="ikoneOnemogocene">#CCCBA7</color> <!--#CCCBA7 ali #E6E5CA-->
+    <color name="barva">#FFFCAF</color>
+    <color name="barva2">#FFF6C7</color>
+
+
+    <!-- #E6AF00, #FFEBE8, #D7F7E1, #DFBE23, #FFF2C7, #FFFCAF-->
 
 
 </resources>
