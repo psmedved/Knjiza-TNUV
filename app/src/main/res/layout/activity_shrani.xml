@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ozadje"
+    android:background="@color/ozadjeAplikacije"
     tools:context=".MainActivity">
 
     <!--Zgornja navigacijska vrstica: ime strani-->
@@ -14,6 +14,7 @@
         android:id="@+id/top_app_bar_menu"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/top_navigacija_ozadje"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -104,6 +105,13 @@
         android:id="@+id/bottom_app_bar_menu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/bottom_navigacija_ozadje"
+        app:itemIconTint="@color/bottom_navigacija_barve"
+        app:itemTextColor="@color/bottom_navigacija_barve"
+        app:enableEdgeToEdge="false"
+        app:itemActiveIndicatorStyle="@style/brezIndikatorjaAktivnosti"
+        app:labelVisibilityMode="labeled"
+        app:itemHorizontalTranslationEnabled="false"
         app:menu="@menu/bottom_navigacija"
         app:layout_constraintTop_toBottomOf="@id/vsebina_aplikacije"
         app:layout_constraintBottom_toBottomOf="parent"

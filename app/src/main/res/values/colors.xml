@@ -2,14 +2,27 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red">#FF0000</color>
-    <color name="ozadje">#FFFDC7</color>
+    <color name="ozadjeAplikacije">#FFFDC7</color>
+    <color name="navigacijaObroba">#EDC001</color>
+    <color name="bottomNavigacijaOmogocene">#5C5430</color> <!--#FFF6C7  kompl #5C5430/#807542-->
+    <!--<color name="ikoneOmogocene">#364A34</color>--> <!-- #60A790 ali #364A34-->
+    <color name="bottomNavigacijaOnemogocene">#CCCBA7</color> <!--#CCCBA7 ali #E6E5CA-->
+    <color name="navigacijaOzadje">#FFF6C7</color> <!-- #807542 komplement-->
+    <color name="gumbBarvaOzadje">#F4C430</color> <!--safron-->
+
     <color name="rumena">#FFFB91</color>
-    <color name="gumbi">#EDC001</color>
-    <color name="ikoneOmogocene">#364A34</color> <!-- #60A790 ali #364A34-->
-    <color name="ikoneOnemogocene">#CCCBA7</color> <!--#CCCBA7 ali #E6E5CA-->
     <color name="barva">#FFFCAF</color>
-    <color name="barva2">#FFF6C7</color>
+    <color name="barva2k">#807542</color> <!-- komplement za text orodnih vrstic -->
+    <color name="barva5">#FFF44F</color> <!--bright yellow-->
+    <color name="barva6">#FFE135</color> <!--banana yellow-->
+    <color name="barva7">#FBDB65</color> <!--cheese yellow-->
+    <color name="barva4">#FADA5E</color> <!--royal yellow-->
+    <color name="gumbBarvaVsebina">#5C5749</color><!--#5C5749 in #8F8156 komplementa safrona-->
+    <color name="barva9">#D5B60A</color> <!--dark yellow-->
+    <color name="barva8">#CCA01D</color> <!--lemon curry-->
+
+
+
 
 
     <!-- #E6AF00, #FFEBE8, #D7F7E1, #DFBE23, #FFF2C7, #FFFCAF-->

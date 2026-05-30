@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/ikoneOmogocene" android:state_enabled="true"/>
-    <item android:color="@color/ikoneOnemogocene" android:state_enabled="false"/>
-
+    <item android:color="@color/bottomNavigacijaOnemogocene" android:state_enabled="false"/>
+    <item android:color="@color/bottomNavigacijaOmogocene" android:state_checked="true"/>
+    <item android:color="@color/bottomNavigacijaOmogocene" android:state_checked="false"/>
+    <item android:color="@color/bottomNavigacijaOmogocene" android:state_pressed="true"/>
+    <item android:color="@color/bottomNavigacijaOmogocene" android:state_pressed="false"/>
+    <item android:color="@color/bottomNavigacijaOmogocene" android:state_selected="true"/>
+    <item android:color="@color/bottomNavigacijaOmogocene" android:state_selected="false"/>
+    <item android:color="@color/bottomNavigacijaOmogocene" android:state_enabled="true"/>
 </selector>

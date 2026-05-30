@@ -4,7 +4,11 @@
     <!--<style name="Base.Theme.Knjiza" parent="Theme.Material3.DayNight.NoActionBar">-->
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="background">@color/ozadje</item>
+        <item name="background">@color/ozadjeAplikacije</item>
+        <item name="bottomNavigationStyle">@style/bottomNavigacijaStil</item>
+
+
+
     </style>
 
     <style name="Theme.Knjiza" parent="Base.Theme.Knjiza" />

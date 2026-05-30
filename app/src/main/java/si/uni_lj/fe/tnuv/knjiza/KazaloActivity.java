@@ -11,6 +11,9 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import androidx.activity.EdgeToEdge;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -35,6 +38,12 @@ public class KazaloActivity extends MainActivity  {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_kazalo);
         poimenujStran(R.string.text_kazalo);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            //v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
+            return insets;
+        });
         findViewById(R.id.btn_k_dodaj_kazalo).setOnClickListener(v -> shraniKazalo());
         findViewById(R.id.btn_k_dodaj_knjigo).setOnClickListener(v -> shraniKnjigo());
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);

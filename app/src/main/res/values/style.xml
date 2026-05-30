@@ -1,13 +1,31 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="NoActiveIndicator" parent="">
+    <style name="bottomNavigacijaStil" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemTextAppearanceActive">@style/bottom_navigacija_izgledTeksta</item>
+        <item name="itemTextAppearanceInactive">@style/bottom_navigacija_izgledTeksta</item>
+        <item name="itemIconSize">24dp</item>
+    </style>
+
+    <style name="brezIndikatorjaAktivnosti" parent="">
         <item name="android:height">0dp</item>
         <item name="android:width">0dp</item>
         <item name="android:padding">0dp</item>
 
-        <!-- Material3 attributes -->
         <item name="shapeAppearance">@null</item>
         <item name="shapeAppearanceOverlay">@null</item>
         <item name="background">@android:color/transparent</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+    <style name="bottom_navigacija_izgledTeksta" parent="@style/TextAppearance.MaterialComponents.Caption">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="gumbiStil" parent="">
+        <item name="android:textColor">@color/gumbBarvaVsebina</item>
+        <item name="android:drawableTint">@color/gumbBarvaVsebina</item>
+        <item name="android:backgroundTint">@color/gumbBarvaOzadje</item>
+    </style>
+
 </resources>

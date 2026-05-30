@@ -3,10 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:material3="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ozadje"
+    android:background="@color/ozadjeAplikacije"
     tools:context=".MainActivity">
 
     <!--Zgornja navigacijska vrstica: ime strani-->
@@ -63,6 +64,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        android:drawableTop="@drawable/speaker_notes"
                         android:text="@string/text_citati" />
 
                     <Button
@@ -71,6 +73,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
+                        android:drawableTop="@drawable/book_24"
                         android:text="@string/text_kazalo" />
                 </LinearLayout>
 
@@ -84,8 +87,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
+                        android:drawableTop="@drawable/photo_camera_24"
                         android:text="@string/text_slikaj"
-                        android:drawableTop="@drawable/check_24"/>
+                        style="@style/gumbiStil"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -100,9 +104,9 @@
         app:itemIconTint="@color/bottom_navigacija_barve"
         app:itemTextColor="@color/bottom_navigacija_barve"
         app:enableEdgeToEdge="false"
-        app:itemActiveIndicatorStyle="@style/NoActiveIndicator"
-
+        app:itemActiveIndicatorStyle="@style/brezIndikatorjaAktivnosti"
         app:labelVisibilityMode="labeled"
+        app:itemHorizontalTranslationEnabled="false"
         app:menu="@menu/bottom_navigacija"
         app:layout_constraintTop_toBottomOf="@id/vsebina_aplikacije"
         app:layout_constraintBottom_toBottomOf="parent"

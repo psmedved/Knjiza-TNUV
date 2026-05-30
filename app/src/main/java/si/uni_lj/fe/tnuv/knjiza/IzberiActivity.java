@@ -28,6 +28,12 @@ public class IzberiActivity extends MainActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_izberi);
         poimenujStran(R.string.text_izberi);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            //v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
+            return insets;
+        });
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
         bottomAppMenu.getMenu().findItem(R.id.btn_n_domov).setEnabled(false);

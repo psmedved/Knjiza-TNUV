@@ -32,6 +32,12 @@ public class ShraniActivity extends MainActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_shrani);
         poimenujStran(R.string.text_shrani);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            //v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
+            return insets;
+        });
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
         //findViewById(R.id.btn_s_shrani).setOnClickListener(v -> {startActivity(new Intent(ShraniActivity.this, MainActivity.class));});

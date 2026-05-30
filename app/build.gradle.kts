@@ -37,7 +37,7 @@ android {
 
 dependencies {
     implementation(libs.appcompat)
-    implementation(libs.material)
+    implementation("com.google.android.material:material:1.13.0")
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation("com.google.mlkit:text-recognition:16.0.1")
