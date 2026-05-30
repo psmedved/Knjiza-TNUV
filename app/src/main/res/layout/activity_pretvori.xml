@@ -61,7 +61,8 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="@string/navigacija_nadaljuj" />
+                android:text="@string/navigacija_nadaljuj"
+                style="@style/gumbiStil" />
         </LinearLayout>
     </LinearLayout>
 

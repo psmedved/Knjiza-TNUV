@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center"
@@ -52,7 +52,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:text="@string/navigacija_dodaj_kazalo" />
+                    android:drawableLeft="@drawable/add_24"
+                    android:text="@string/navigacija_dodaj_kazalo"
+                    style="@style/gumbiStil"/>
             </LinearLayout>
             <ListView
                 android:id="@+id/seznam_kazala"
@@ -64,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
@@ -75,7 +77,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="@string/navigacija_dodaj_knjigo" />
+                android:drawableLeft="@drawable/add_circle_24"
+                android:text="@string/navigacija_dodaj_knjigo"
+                style="@style/gumbiStil"/>
             </LinearLayout>
             <ListView
                 android:id="@+id/seznam_knjige"
