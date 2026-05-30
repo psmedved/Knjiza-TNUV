@@ -14,9 +14,4 @@
         android:enabled="true"
         android:icon="@drawable/arrow_forward_24"
         android:title="@string/navigacija_naprej"/>
-    <!--<item
-        android:id="@+id/btn_n_potrdi"
-        android:enabled="true"
-        android:icon="@drawable/check_24"
-        android:title="@string/navigacija_potrdi"/>-->
 </menu>

@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
             android:id="@+id/naslov_obvestila"
             android:layout_width="wrap_content"
@@ -18,7 +19,6 @@
             android:textStyle="bold"
             android:paddingBottom="15dp"
             android:text="@string/text_naslov_citat" />
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,6 +35,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/btn_obvestilo_shrani_nazaj"
             android:layout_width="0dp"
@@ -48,6 +49,7 @@
             android:drawableTop="@drawable/arrow_back_24"
             android:text="@string/navigacija_nazaj"
             style="@style/gumbiStil" />
+
         <Button
             android:id="@+id/btn_obvestilo_shrani_domov"
             android:layout_width="0dp"
@@ -61,6 +63,7 @@
             android:drawableTop="@drawable/home_24"
             android:text="@string/navigacija_domov"
             style="@style/gumbiStil" />
+
         <Button
             android:id="@+id/btn_obvestilo_shrani_citat"
             android:layout_width="0dp"

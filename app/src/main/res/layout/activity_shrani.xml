@@ -37,6 +37,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center">
+
             <TextView
                 android:id="@+id/polje_besedilo_shrani"
                 android:layout_width="wrap_content"
@@ -51,9 +52,11 @@
             android:layout_weight="2"
             android:gravity="center"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <EditText
                     android:id="@+id/polje_knjiga_shrani"
                     android:layout_width="match_parent"
@@ -65,6 +68,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <EditText
                     android:id="@+id/polje_avtor_shrani"
                     android:layout_width="match_parent"
@@ -76,6 +80,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <EditText
                     android:id="@+id/polje_leto_shrani"
                     android:layout_width="match_parent"

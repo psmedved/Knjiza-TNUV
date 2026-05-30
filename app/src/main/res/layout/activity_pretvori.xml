@@ -37,6 +37,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center">
+
             <ImageView
                 android:id="@+id/polje_slike_pretvori"
                 android:layout_width="match_parent"
@@ -49,12 +50,14 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/polje_besedilo_pretvori"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="" />
+
             <Button
                 android:id="@+id/btn_p_nadaljuj"
                 android:layout_width="0dp"

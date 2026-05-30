@@ -2,21 +2,17 @@ package si.uni_lj.fe.tnuv.knjiza;
 
 import android.app.Activity;
 import android.util.Log;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-
 public class PreberiPodatke {
 
+    private static final String TAG = PreberiPodatke.class.getSimpleName();
     private final Activity klicatelj;
-
     public PreberiPodatke(Activity klicatelj) {
         this.klicatelj = klicatelj;
     }
@@ -29,13 +25,12 @@ public class PreberiPodatke {
             String vrstica;
             while ((vrstica = bralnik.readLine()) != null) {
                 seznamCitatov.add(pretvoriVRazredCitat(vrstica));
-                //Log.d("Prebrano!!", vrstica);
+                //Log.d(TAG, "Prebrano-citati", vrstica);
             }
             bralnik.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return seznamCitatov;
     }
 
@@ -47,13 +42,12 @@ public class PreberiPodatke {
             String vrstica;
             while ((vrstica = bralnik.readLine()) != null) {
                 seznamKazal.add(pretvoriVRazredKazalo(vrstica));
-                Log.d("Prebrano!!", vrstica);
+                //Log.d(TAG,"Prebrano-kazala", vrstica);
             }
             bralnik.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return seznamKazal;
     }
 
@@ -65,44 +59,42 @@ public class PreberiPodatke {
             String vrstica;
             while ((vrstica = bralnik.readLine()) != null) {
                 seznamKnjig.add(pretvoriVRazredKnjiga(vrstica));
-                Log.d("Prebrano!!", vrstica);
+                //Log.d(TAG,"Prebrano-knjige", vrstica);
             }
             bralnik.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return seznamKnjig;
     }
 
-
     public Citat pretvoriVRazredCitat(String vrstica) throws JSONException {
         JSONObject object = new JSONObject(vrstica);
-
         Citat novCitat = new Citat(
                 object.getString("citat"),
                 object.getString("knjiga"),
                 object.getString("avtor"),
-                object.getInt("leto") );
+                object.getInt("leto")
+        );
         return novCitat;
     }
 
     public Kazalo pretvoriVRazredKazalo(String vrstica) throws JSONException {
         JSONObject object = new JSONObject(vrstica);
-
         Kazalo novoKazalo = new Kazalo(
                 object.getString("knjiga"),
-                object.getInt("stran") );
+                object.getInt("stran")
+        );
         return novoKazalo;
     }
 
     public Knjiga pretvoriVRazredKnjiga(String vrstica) throws JSONException {
         JSONObject object = new JSONObject(vrstica);
-
         Knjiga novaKnjiga = new Knjiga(
                 object.getString("knjiga"),
                 object.getString("avtor"),
-                object.getInt("leto") );
+                object.getInt("leto")
+        );
         return novaKnjiga;
     }
 }

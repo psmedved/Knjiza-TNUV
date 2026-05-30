@@ -36,21 +36,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>
-        <!--Zgornje okno vsebine-->
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center">
-        </LinearLayout>-->
-
-        <!--Spodnje okno vsebine-->
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-        </LinearLayout>-->
     </LinearLayout>
 
     <!--Spodnja navigacijska vrstica: nazaj, domov, potrdi-->

@@ -11,13 +11,8 @@ public class Kazalo {
     }
 
     //Matode priklica - getterji
-    public String getKnjiga() {
-        return this.knjiga;
-    }
-    public int getStran() {
-        return this.stran;
-    }
-
+    public String getKnjiga() { return this.knjiga; }
+    public int getStran() { return this.stran; }
     public String getStranToString() {
         return String.valueOf(this.stran);
     }

@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -17,7 +18,6 @@
             android:textStyle="bold"
             android:paddingBottom="15dp"
             android:text="@string/text_naslov_knjiga" />
-
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,6 +31,7 @@
             android:hint="@string/zacasni_napis_knjiga"
             android:inputType="text"
             android:layout_weight="1" />
+
         <EditText
             android:id="@+id/polje_avtor_knjiga"
             android:layout_width="match_parent"
@@ -38,6 +39,7 @@
             android:hint="@string/zacasni_napis_avtor"
             android:inputType="text"
             android:layout_weight="1" />
+
         <EditText
             android:id="@+id/polje_leto_knjiga"
             android:layout_width="match_parent"
@@ -49,6 +51,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

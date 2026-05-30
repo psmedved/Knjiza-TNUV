@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--osnove barve-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="ozadjeAplikacije">#FFFDC7</color>
-    <color name="navigacijaObroba">#EDC001</color>
-    <color name="bottomNavigacijaOmogocene">#5C5430</color> <!--#FFF6C7  kompl #5C5430/#807542-->
-    <!--<color name="ikoneOmogocene">#364A34</color>--> <!-- #60A790 ali #364A34-->
-    <color name="bottomNavigacijaOnemogocene">#CCCBA7</color> <!--#CCCBA7 ali #E6E5CA-->
-    <color name="navigacijaOzadje">#FFF6C7</color> <!-- #807542 komplement-->
-    <color name="gumbBarvaOzadje">#F4C430</color> <!--safron-->
 
+    <!--barva ozadja celotne aplikacije-->
+    <color name="ozadjeAplikacije">#FFFDC7</color>
+
+    <!--barve zgornje in spodnje navigacijske vrstice-->
+    <color name="navigacijaObroba">#EDC001</color>
+    <color name="bottomNavigacijaOmogocene">#5C5430</color>
+    <color name="bottomNavigacijaOnemogocene">#CCCBA7</color>
+    <color name="navigacijaOzadje">#FFF6C7</color>
+
+    <!--barve gumbov: ikone in napisi-->
+    <color name="gumbBarvaOzadje">#F4C430</color> <!--safron-->
+    <color name="gumbBarvaVsebina">#5C5749</color>
+
+    <!--zbirka rumenih barvu, ki niso v uporabi-->
     <color name="rumena">#FFFB91</color>
     <color name="barva">#FFFCAF</color>
     <color name="barva2k">#807542</color> <!-- komplement za text orodnih vrstic -->
-    <color name="barva5">#FFF44F</color> <!--bright yellow-->
-    <color name="barva6">#FFE135</color> <!--banana yellow-->
-    <color name="barva7">#FBDB65</color> <!--cheese yellow-->
-    <color name="barva4">#FADA5E</color> <!--royal yellow-->
-    <color name="gumbBarvaVsebina">#5C5749</color><!--#5C5749 in #8F8156 komplementa safrona-->
-    <color name="barva9">#D5B60A</color> <!--dark yellow-->
-    <color name="barva8">#CCA01D</color> <!--lemon curry-->
-
-
-
-
-
-    <!-- #E6AF00, #FFEBE8, #D7F7E1, #DFBE23, #FFF2C7, #FFFCAF-->
-
-
+    <color name="bbright_yellow">#FFF44F</color> <!--bright yellow-->
+    <color name="banana_yellow">#FFE135</color> <!--banana yellow-->
+    <color name="cheese_yellow">#FBDB65</color> <!--cheese yellow-->
+    <color name="broyal_yellow">#FADA5E</color> <!--royal yellow-->
+    <color name="dark_yellow">#D5B60A</color> <!--dark yellow-->
+    <color name="lemon_curry">#CCA01D</color> <!--lemon curry-->
+    <!--<color name=""></color>-->
 </resources>

@@ -1,12 +1,8 @@
 package si.uni_lj.fe.tnuv.knjiza;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
@@ -14,16 +10,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import org.json.JSONObject;
-
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
@@ -38,6 +30,7 @@ public class KazaloActivity extends MainActivity  {
     private ListView prikazovalnikKazala;
     private ListView prikazovalnikKnjige;
     private PreberiPodatke bralnik;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,17 +39,16 @@ public class KazaloActivity extends MainActivity  {
         poimenujStran(R.string.text_kazalo);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            //v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
             return insets;
         });
-        findViewById(R.id.btn_k_dodaj_kazalo).setOnClickListener(v -> shraniKazalo());
-        findViewById(R.id.btn_k_dodaj_knjigo).setOnClickListener(v -> shraniKnjigo());
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
+
+        findViewById(R.id.btn_k_dodaj_kazalo).setOnClickListener(v -> shraniKazalo());
+        findViewById(R.id.btn_k_dodaj_knjigo).setOnClickListener(v -> shraniKnjigo());
         prikazovalnikKazala = findViewById(R.id.seznam_kazala);
         prikazovalnikKnjige = findViewById(R.id.seznam_knjige);
-
     }
 
     @Override
@@ -65,40 +57,10 @@ public class KazaloActivity extends MainActivity  {
         bralnik = new PreberiPodatke(this);
         seznamKazala = bralnik.preberiKazala();
         seznamKnjige = bralnik.preberiKnjige();
-
         prikaziPodatke();
     }
 
     public void  shraniKazalo() {
-        /*LayoutInflater inflater = getLayoutInflater();
-        View dodajKazalo = inflater.inflate(R.layout.dodaj_kazalo, null);*/
-        /*AlertDialog.Builder gradnik = new AlertDialog.Builder(this, R.style.dialogStil)
-                .setTitle(R.string.text_naslov_kazalo)
-                .setView(dodajKazalo)
-                .setCancelable(false)
-                .setPositiveButton(R.string.text_shrani, (dialog, which) -> {
-                    EditText vnosnoPoljeKnjiga = dodajKazalo.findViewById(R.id.polje_knjiga_kazalo);
-                    String vpisKnjiga = vnosnoPoljeKnjiga.getText().toString();
-                    EditText vnosnoPoljeStran = dodajKazalo.findViewById(R.id.polje_stran_kazalo);
-                    String vpisStran = vnosnoPoljeStran.getText().toString();
-                    try {
-                        FileOutputStream datoteka = openFileOutput(getString(R.string.datoteka_kazala), MODE_APPEND);
-                        //Zapisovanje v NDJSON
-                        OutputStreamWriter zapisovalec = new OutputStreamWriter(datoteka, StandardCharsets.UTF_8);
-                        JSONObject objektCitat = new JSONObject();
-                        objektCitat.put("knjiga", vpisKnjiga);
-                        objektCitat.put("stran", vpisStran);
-                        zapisovalec.write(objektCitat.toString());
-                        zapisovalec.write("\n");
-                        zapisovalec.close();
-                        dialog.dismiss();
-                        potrdiSranjevanjeKazala();
-                    } catch (Exception e) {}
-                })
-                .setNegativeButton(R.string.navigacija_preklici, null);
-        AlertDialog dialog = gradnik.create();
-        dialog.show();
-        dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_ozadje);*/
         Dialog dodajKazalo = new Dialog(this);
         dodajKazalo.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dodajKazalo.setContentView(R.layout.dodaj_kazalo);
@@ -144,37 +106,6 @@ public class KazaloActivity extends MainActivity  {
     }
 
     public void  shraniKnjigo() {
-        /*LayoutInflater inflater = getLayoutInflater();
-        View dodajKnjigo = inflater.inflate(R.layout.dodaj_knjigo, null);
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.text_naslov_knjiga)
-                .setView(dodajKnjigo)
-                .setCancelable(false)
-                .setPositiveButton(R.string.text_shrani, (dialog, which) -> {
-                    EditText vnosnoPoljeKnjiga = dodajKnjigo.findViewById(R.id.polje_knjiga_knjiga);
-                    String vpisKnjiga = vnosnoPoljeKnjiga.getText().toString();
-                    EditText vnosnoPoljeAvtor = dodajKnjigo.findViewById(R.id.polje_avtor_knjiga);
-                    String vpisAvtor = vnosnoPoljeAvtor.getText().toString();
-                    EditText vnosnoPoljeLeto = dodajKnjigo.findViewById(R.id.polje_leto_knjiga);
-                    String vpisLeto = vnosnoPoljeLeto.getText().toString();
-                    try {
-                        FileOutputStream datoteka = openFileOutput(getString(R.string.datoteka_knjiga), MODE_APPEND);
-                        //Zapisovanje v NDJSON
-                        OutputStreamWriter zapisovalec = new OutputStreamWriter(datoteka, StandardCharsets.UTF_8);
-                        JSONObject objektCitat = new JSONObject();
-                        objektCitat.put("knjiga", vpisKnjiga);
-                        objektCitat.put("avtor", vpisAvtor);
-                        objektCitat.put("leto", vpisLeto);
-                        zapisovalec.write(objektCitat.toString());
-                        zapisovalec.write("\n");
-                        zapisovalec.close();
-                        dialog.dismiss();
-                        potrdiSranjevanjeKnjige();
-                    } catch (Exception e) {}
-                })
-                .setNegativeButton(R.string.navigacija_preklici, null)
-                .show();*/
-
         Dialog dodajKnjigo = new Dialog(this);
         dodajKnjigo.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dodajKnjigo.setContentView(R.layout.dodaj_knjigo);
@@ -226,7 +157,6 @@ public class KazaloActivity extends MainActivity  {
 
     private void prikaziPodatkeKazalo() {
         try {
-            //seznamCitatov = new ContactsJsonParser().parseToArrayList(podatki);
             ArrayList<HashMap<String, String>> seznamZaAdapter = new ArrayList<>();
             for (Kazalo k : seznamKazala) {
                 HashMap<String, String> map = new HashMap<>();
@@ -254,7 +184,6 @@ public class KazaloActivity extends MainActivity  {
 
     private void prikaziPodatkeKnjiga() {
         try {
-            //seznamCitatov = new ContactsJsonParser().parseToArrayList(podatki);
             ArrayList<HashMap<String, String>> seznamZaAdapter = new ArrayList<>();
             for (Knjiga k : seznamKnjige) {
                 HashMap<String, String> map = new HashMap<>();
@@ -283,11 +212,6 @@ public class KazaloActivity extends MainActivity  {
     }
 
     public void potrdiSranjevanjeKazala() {
-        /*new AlertDialog.Builder(this)
-                .setTitle(R.string.text_naslov_citat) //ponovno uporabljen zaradi iste vsebine
-                .setMessage(R.string.text_sporocilo_kazalo)
-                .setPositiveButton(R.string.navigacija_potrdi, null)
-                .show();*/
         Dialog obvestilo = new Dialog(this);
         obvestilo.requestWindowFeature(Window.FEATURE_NO_TITLE);
         obvestilo.setContentView(R.layout.obvestilo);
@@ -305,17 +229,10 @@ public class KazaloActivity extends MainActivity  {
         Button potrdi = obvestilo.findViewById(R.id.btn_obvestilo);
         potrdi.setOnClickListener(v -> {
             obvestilo.dismiss();
-
         });
     }
 
     public void potrdiSranjevanjeKnjige() {
-        /*new AlertDialog.Builder(this)
-                .setTitle(R.string.text_naslov_citat) //ponovno uporabljen zaradi iste vsebine
-                .setMessage(R.string.text_sporocilo_knjiga)
-                .setPositiveButton(R.string.navigacija_potrdi, null)
-                .show();
-    }*/
         Dialog obvestilo = new Dialog(this);
         obvestilo.requestWindowFeature(Window.FEATURE_NO_TITLE);
         obvestilo.setContentView(R.layout.obvestilo);
@@ -333,7 +250,6 @@ public class KazaloActivity extends MainActivity  {
         Button potrdi = obvestilo.findViewById(R.id.btn_obvestilo);
         potrdi.setOnClickListener(v -> {
             obvestilo.dismiss();
-
         });
     }
 }

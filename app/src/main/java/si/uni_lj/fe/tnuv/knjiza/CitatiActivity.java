@@ -22,6 +22,7 @@ public class CitatiActivity extends MainActivity  {
     private static final String TAG = CitatiActivity.class.getSimpleName();
     private ArrayList<Citat> seznamCitatov;
     private ListView prikazovalnikCitatov;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,12 +31,12 @@ public class CitatiActivity extends MainActivity  {
         poimenujStran(R.string.text_citati);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            //v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
             return insets;
         });
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
+
         prikazovalnikCitatov = findViewById(R.id.seznam_citatov);
     }
 
@@ -49,7 +50,6 @@ public class CitatiActivity extends MainActivity  {
 
     private void prikaziPodatke() {
         try {
-            //seznamCitatov = new ContactsJsonParser().parseToArrayList(podatki);
             ArrayList<HashMap<String, String>> seznamZaAdapter = new ArrayList<>();
             for (Citat c : seznamCitatov) {
                 HashMap<String, String> map = new HashMap<>();
@@ -67,7 +67,7 @@ public class CitatiActivity extends MainActivity  {
                     new int[] {R.id.izpis_knjiga_citati, R.id.izpis_avtor_citati}
             );
             prikazovalnikCitatov.setAdapter(pretvornikIzgleda);
-            Log.d("TAG", "Izpis podatkov citatov");
+            Log.d(TAG, "Izpis podatkov citatov");
         } catch (Exception e) {
             Log.e(TAG, "Napaka" + e.getMessage(), e);
         }

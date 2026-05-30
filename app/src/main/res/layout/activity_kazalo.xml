@@ -41,12 +41,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:text="@string/text_kazalo" />
+
                 <Button
                     android:id="@+id/btn_k_dodaj_kazalo"
                     android:layout_width="0dp"
@@ -57,6 +59,7 @@
                     android:text="@string/navigacija_dodaj_kazalo"
                     style="@style/gumbiStil"/>
             </LinearLayout>
+
             <ListView
                 android:id="@+id/seznam_kazala"
                 android:layout_width="match_parent"
@@ -71,15 +74,18 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:text="@string/text_knjige" />
+
                 <Button
                     android:id="@+id/btn_k_dodaj_knjigo"
                     android:layout_width="0dp"
@@ -90,6 +96,7 @@
                     android:text="@string/navigacija_dodaj_knjigo"
                     style="@style/gumbiStil"/>
                 </LinearLayout>
+
                 <ListView
                     android:id="@+id/seznam_knjige"
                     android:layout_width="match_parent"

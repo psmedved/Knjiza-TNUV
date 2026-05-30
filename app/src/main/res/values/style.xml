@@ -27,5 +27,4 @@
         <item name="android:drawableTint">@color/gumbBarvaVsebina</item>
         <item name="android:backgroundTint">@color/gumbBarvaOzadje</item>
     </style>
-
 </resources>
