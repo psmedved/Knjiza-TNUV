@@ -22,6 +22,8 @@ import java.io.ByteArrayOutputStream;
 
 public class IzberiActivity extends MainActivity {
 
+    private static final String TAG = CitatiActivity.class.getSimpleName();
+    private EditText prikazBesedila;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,20 +38,18 @@ public class IzberiActivity extends MainActivity {
         });
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
-        bottomAppMenu.getMenu().findItem(R.id.btn_n_domov).setEnabled(false);
         //findViewById(R.id.btn_i_nadaljuj).setOnClickListener(v -> {startActivity(new Intent(IzberiActivity.this, ShraniActivity.class));});
         findViewById(R.id.btn_i_ponovi).setOnClickListener(v -> {startActivity(new Intent(IzberiActivity.this, SlikajActivity.class));});
         String prebranoBesedilo = getIntent().getStringExtra("Besedilo");
-        EditText prikazBesedila = findViewById(R.id.polje_besedilo_izberi);
+        prikazBesedila = findViewById(R.id.polje_besedilo_izberi);
         prikazBesedila.setText(prebranoBesedilo);
-        pretvorjenoBesedilo = prebranoBesedilo;
     }
     @Override
     public void obKlikuNaprej(){
+        String izbranoBesedilo = prikazBesedila.getText().toString();
+        Log.d(TAG, izbranoBesedilo);
         Intent odpriShrani = new Intent(IzberiActivity.this, ShraniActivity.class);
-        odpriShrani.putExtra("Besedilo", pretvorjenoBesedilo);
+        odpriShrani.putExtra("Besedilo", izbranoBesedilo);
         startActivity(odpriShrani);
     }
-
-    private String pretvorjenoBesedilo = "";
 }

@@ -32,6 +32,7 @@ public class SlikajActivity extends MainActivity  {
             return insets;
         });
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
+        findViewById(R.id.btn_s_slikaj).setOnClickListener(v -> odpriKamero());
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
         odpriKamero();
     }

@@ -3,10 +3,14 @@ package si.uni_lj.fe.tnuv.knjiza;
 import static androidx.core.content.ContentProviderCompat.requireContext;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.JsonWriter;
 import android.util.Log;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -26,6 +30,7 @@ import java.nio.charset.StandardCharsets;
 
 public class ShraniActivity extends MainActivity {
 
+    private static final String TAG = CitatiActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,7 +105,7 @@ public class ShraniActivity extends MainActivity {
             vnosnoPoljeAvtor.setText("");
             vnosnoPoljeLeto.setText("");
 
-            new AlertDialog.Builder(this)
+            /*new AlertDialog.Builder(this)
                     .setTitle(R.string.text_naslov_citat)
                     .setMessage(R.string.text_sporocilo_citat)
                     .setCancelable(false)
@@ -123,9 +128,39 @@ public class ShraniActivity extends MainActivity {
                         finish();
                         dialog.dismiss();
                     })
-                    .show();
-
-
+                    .show();*/
+            Dialog obvestilo = new Dialog(this);
+            obvestilo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            obvestilo.setContentView(R.layout.obvestilo_shrani);
+            obvestilo.getWindow().setBackgroundDrawableResource(R.drawable.dialog_ozadje);
+            obvestilo.setCancelable(false);
+            obvestilo.show();
+            obvestilo.getWindow().setLayout(
+                    (int) (getResources().getDisplayMetrics().widthPixels * 0.89),
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+            );
+            Button nazaj = obvestilo.findViewById(R.id.btn_obvestilo_shrani_nazaj);
+            Button domov = obvestilo.findViewById(R.id.btn_obvestilo_shrani_domov);
+            Button novCitat = obvestilo.findViewById(R.id.btn_obvestilo_shrani_citat);
+            nazaj.setOnClickListener(v -> {
+                Intent odpriShrani = new Intent(this, ShraniActivity.class);
+                odpriShrani.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(odpriShrani);
+                finish();
+                obvestilo.dismiss();
+            });
+            domov.setOnClickListener(v -> {
+                Intent odpriDomov = new Intent(this, MainActivity.class);
+                odpriDomov.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(odpriDomov);
+                finish();
+            });
+            novCitat.setOnClickListener(v -> {
+                Intent odpriSlikaj = new Intent(this, SlikajActivity.class);
+                odpriSlikaj.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(odpriSlikaj);
+                finish();
+            });
         } catch (Exception e) {
         }
     }

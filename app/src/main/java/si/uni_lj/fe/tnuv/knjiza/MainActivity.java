@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowInsetsController;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
             return insets;
         });
+        //
         Toolbar topAppMenu = findViewById(R.id.top_app_bar_menu);
         setSupportActionBar(topAppMenu);
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
@@ -67,8 +71,10 @@ public class MainActivity extends AppCompatActivity {
             finish();
             return true;
         } else if (idGumba == R.id.btn_n_domov) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            Intent odpriDomov = new Intent(this, MainActivity.class);
+            odpriDomov.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(odpriDomov);
+            finish();
             return true;
         } else if (idGumba == R.id.btn_n_naprej) {
             Toast.makeText(this, "Naprej", Toast.LENGTH_SHORT).show();
