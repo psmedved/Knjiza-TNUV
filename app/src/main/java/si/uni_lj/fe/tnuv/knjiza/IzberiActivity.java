@@ -29,15 +29,23 @@ public class IzberiActivity extends MainActivity {
         });
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
+        bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(true);
 
         findViewById(R.id.btn_i_ponovi).setOnClickListener(v -> {startActivity(new Intent(IzberiActivity.this, SlikajActivity.class));});
+        findViewById(R.id.btn_i_nadaljuj).setOnClickListener(v -> {
+            String izbranoBesedilo = prikazBesedila.getText().toString();
+            Log.d(TAG, izbranoBesedilo);
+            Intent odpriShrani = new Intent(IzberiActivity.this, ShraniActivity.class);
+            odpriShrani.putExtra("Besedilo", izbranoBesedilo);
+            startActivity(odpriShrani);
+        });
         String prebranoBesedilo = getIntent().getStringExtra("Besedilo");
         prikazBesedila = findViewById(R.id.polje_besedilo_izberi);
         prikazBesedila.setText(prebranoBesedilo);
     }
 
     @Override
-    public void obKlikuNaprej(){
+    public void obKlikuNaprej() {
         String izbranoBesedilo = prikazBesedila.getText().toString();
         Log.d(TAG, izbranoBesedilo);
         Intent odpriShrani = new Intent(IzberiActivity.this, ShraniActivity.class);

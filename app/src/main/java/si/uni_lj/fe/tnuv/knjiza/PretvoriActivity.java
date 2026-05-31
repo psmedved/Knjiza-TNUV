@@ -39,7 +39,13 @@ public class PretvoriActivity extends MainActivity {
         });
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
+        bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(true);
 
+        findViewById(R.id.btn_p_nadaljuj).setOnClickListener(v -> {
+            Intent odpriIzberi = new Intent(PretvoriActivity.this, IzberiActivity.class);
+            odpriIzberi.putExtra("Besedilo", pretvorjenoBesedilo);
+            startActivity(odpriIzberi);
+        });
         //Prikaz zajete slike
         byte[] bitniTok = getIntent().getByteArrayExtra("slika");
         Bitmap slika = BitmapFactory.decodeByteArray(bitniTok, 0, bitniTok.length);

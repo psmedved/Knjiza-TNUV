@@ -22,6 +22,10 @@ import java.nio.charset.StandardCharsets;
 public class ShraniActivity extends MainActivity {
 
     private static final String TAG = ShraniActivity.class.getSimpleName();
+    private TextView vnosnoPoljeCitat;
+    private EditText vnosnoPoljeKnjiga;
+    private EditText vnosnoPoljeAvtor;
+    private EditText vnosnoPoljeLeto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +40,42 @@ public class ShraniActivity extends MainActivity {
         });
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
+        bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(false);
 
+        vnosnoPoljeCitat = findViewById(R.id.polje_besedilo_shrani);
+        vnosnoPoljeKnjiga = findViewById(R.id.polje_knjiga_shrani);
+        vnosnoPoljeAvtor = findViewById(R.id.polje_avtor_shrani);
+        vnosnoPoljeLeto = findViewById(R.id.polje_leto_shrani);
         findViewById(R.id.btn_s_shrani).setOnClickListener(v -> shraniCitat());
-        String prebranoBesedilo = getIntent().getStringExtra("Besedilo");
-        TextView prikazBesedila = findViewById(R.id.polje_besedilo_shrani);
-        prikazBesedila.setText(prebranoBesedilo);
+        findViewById(R.id.btn_s_preklici).setOnClickListener(v -> pocistiPolja());
+        if(savedInstanceState == null) {
+            String prebranoBesedilo = getIntent().getStringExtra("Besedilo");
+            vnosnoPoljeCitat.setText(prebranoBesedilo);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle izhodnoStanje) {
+        super.onSaveInstanceState(izhodnoStanje);
+        izhodnoStanje.putString("citat", vnosnoPoljeCitat.getText().toString());
+        izhodnoStanje.putString("knjiga", vnosnoPoljeKnjiga.getText().toString());
+        izhodnoStanje.putString("avtor", vnosnoPoljeAvtor.getText().toString());
+        izhodnoStanje.putString("leto", vnosnoPoljeLeto.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle shranjenoStanje) {
+        super.onRestoreInstanceState(shranjenoStanje);
+        vnosnoPoljeCitat.setText(shranjenoStanje.getString("citat"));
+        vnosnoPoljeKnjiga.setText(shranjenoStanje.getString("knjiga"));
+        vnosnoPoljeAvtor.setText(shranjenoStanje.getString("avtor"));
+        vnosnoPoljeLeto.setText(shranjenoStanje.getString("leto"));
     }
 
     public void shraniCitat() {
-        TextView vnosnoPoljeCitat = findViewById(R.id.polje_besedilo_shrani);
         String vpisCitat = vnosnoPoljeCitat.getText().toString();
-        EditText vnosnoPoljeKnjiga = findViewById(R.id.polje_knjiga_shrani);
         String vpisKnjiga = vnosnoPoljeKnjiga.getText().toString();
-        EditText vnosnoPoljeAvtor = findViewById(R.id.polje_avtor_shrani);
         String vpisAvtor = vnosnoPoljeAvtor.getText().toString();
-        EditText vnosnoPoljeLeto = findViewById(R.id.polje_leto_shrani);
         String vpisLeto = vnosnoPoljeLeto.getText().toString();
         try {
             FileOutputStream datoteka = openFileOutput(getString(R.string.datoteka_citati), MODE_APPEND);
@@ -65,10 +90,7 @@ public class ShraniActivity extends MainActivity {
             zapisovalec.write("\n");
             zapisovalec.close();
             //Pobrisi vnosna polja
-            vnosnoPoljeKnjiga.setText("");
-            vnosnoPoljeKnjiga.setText("");
-            vnosnoPoljeAvtor.setText("");
-            vnosnoPoljeLeto.setText("");
+            pocistiPolja();
 
             Dialog obvestilo = new Dialog(this);
             obvestilo.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -104,5 +126,12 @@ public class ShraniActivity extends MainActivity {
             });
         } catch (Exception e) {
         }
+    }
+
+    public void pocistiPolja() {
+        vnosnoPoljeCitat.setText("");
+        vnosnoPoljeKnjiga.setText("");
+        vnosnoPoljeAvtor.setText("");
+        vnosnoPoljeLeto.setText("");
     }
 }

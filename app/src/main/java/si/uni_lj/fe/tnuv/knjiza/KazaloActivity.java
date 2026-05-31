@@ -44,6 +44,7 @@ public class KazaloActivity extends MainActivity  {
         });
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
+        bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(false);
 
         findViewById(R.id.btn_k_dodaj_kazalo).setOnClickListener(v -> shraniKazalo());
         findViewById(R.id.btn_k_dodaj_knjigo).setOnClickListener(v -> shraniKnjigo());

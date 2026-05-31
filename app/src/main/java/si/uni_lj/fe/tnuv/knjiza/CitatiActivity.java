@@ -36,6 +36,7 @@ public class CitatiActivity extends MainActivity  {
         });
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
+        bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(false);
 
         prikazovalnikCitatov = findViewById(R.id.seznam_citatov);
     }

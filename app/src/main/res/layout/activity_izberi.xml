@@ -69,12 +69,30 @@
 
                 <Button
                     android:id="@+id/btn_i_ponovi"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="90dp"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="0dp"
                     android:padding="15dp"
+                    android:layout_weight="1"
                     android:drawableTop="@drawable/photo_camera_24"
                     android:text="@string/navigacija_ponovi"
+                    style="@style/gumbiStil"/>
+
+                <Button
+                    android:id="@+id/btn_i_nadaljuj"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:padding="15dp"
+                    android:layout_weight="1"
+                    android:drawableTop="@drawable/forward_24"
+                    android:text="@string/navigacija_nadaljuj"
                     style="@style/gumbiStil"/>
             </LinearLayout>
         </LinearLayout>
