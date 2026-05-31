@@ -24,7 +24,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class PretvoriActivity extends MainActivity {
 
     private static final String TAG = PretvoriActivity.class.getSimpleName();
+    private byte[] bitniTok;
     private String pretvorjenoBesedilo = "";
+    private ImageView prikazSlike;
+    private TextView prikazBesedila;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,16 +50,16 @@ public class PretvoriActivity extends MainActivity {
             startActivity(odpriIzberi);
         });
         //Prikaz zajete slike
-        byte[] bitniTok = getIntent().getByteArrayExtra("slika");
+        bitniTok = getIntent().getByteArrayExtra("slika");
         Bitmap slika = BitmapFactory.decodeByteArray(bitniTok, 0, bitniTok.length);
-        ImageView prikazSlike = findViewById(R.id.polje_slike_pretvori);
+        prikazSlike = findViewById(R.id.polje_slike_pretvori);
+        prikazBesedila = findViewById(R.id.polje_besedilo_pretvori);
         prikazSlike.setImageBitmap(slika);
         pretvoriSlikoVBesedilo(slika, new OZPPovratniKlic() {
             @Override
             public void onOZPRezultat(String besedilo) {
                 Log.d("OCR", "Rezultat: " + besedilo);
                 pretvorjenoBesedilo = besedilo;
-                TextView prikazBesedila = findViewById(R.id.polje_besedilo_pretvori);
                 prikazBesedila.setText(besedilo);
                 BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
                 //bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(true);
@@ -66,6 +69,29 @@ public class PretvoriActivity extends MainActivity {
                 Log.e("OCR", "Napaka: ", e);
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle izhodnoStanje) {
+        super.onSaveInstanceState(izhodnoStanje);
+        izhodnoStanje.putString("pretvorjenoBesedilo", pretvorjenoBesedilo);
+        izhodnoStanje.putByteArray("slika", bitniTok);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle shranjenoStanje) {
+        super.onRestoreInstanceState(shranjenoStanje);
+        pretvorjenoBesedilo = shranjenoStanje.getString("pretvorjenoBesedilo", "");
+        prikazBesedila.setText(pretvorjenoBesedilo);
+        if (!pretvorjenoBesedilo.isEmpty()) {
+            BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
+            bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(true);
+        }
+        bitniTok = shranjenoStanje.getByteArray("slika");
+        if (bitniTok != null) {
+            Bitmap slika = BitmapFactory.decodeByteArray(bitniTok, 0, bitniTok.length);
+            prikazSlike.setImageBitmap(slika);
+        }
     }
 
     @Override

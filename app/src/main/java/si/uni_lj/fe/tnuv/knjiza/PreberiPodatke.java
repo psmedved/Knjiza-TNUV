@@ -69,6 +69,7 @@ public class PreberiPodatke {
     }
 
     public Citat pretvoriVRazredCitat(String vrstica) throws JSONException {
+        //Log.d(TAG, "Prebrana vrstica citat: " + vrstica);
         JSONObject object = new JSONObject(vrstica);
         Citat novCitat = new Citat(
                 object.getString("citat"),

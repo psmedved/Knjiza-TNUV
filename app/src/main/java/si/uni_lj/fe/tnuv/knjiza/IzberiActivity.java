@@ -1,6 +1,8 @@
 package si.uni_lj.fe.tnuv.knjiza;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -14,6 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class IzberiActivity extends MainActivity {
 
     private static final String TAG = IzberiActivity.class.getSimpleName();
+    private String prebranoBesedilo;
     private EditText prikazBesedila;
 
     @Override
@@ -39,9 +42,23 @@ public class IzberiActivity extends MainActivity {
             odpriShrani.putExtra("Besedilo", izbranoBesedilo);
             startActivity(odpriShrani);
         });
-        String prebranoBesedilo = getIntent().getStringExtra("Besedilo");
+        prebranoBesedilo = getIntent().getStringExtra("Besedilo");
         prikazBesedila = findViewById(R.id.polje_besedilo_izberi);
         prikazBesedila.setText(prebranoBesedilo);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle izhodnoStanje) {
+        super.onSaveInstanceState(izhodnoStanje);
+        izhodnoStanje.putString("besedilo", prikazBesedila.getText().toString());
+        izhodnoStanje.putString("prebranoBesedilo", prebranoBesedilo);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle shranjenoStanje) {
+        super.onRestoreInstanceState(shranjenoStanje);
+        prikazBesedila.setText(shranjenoStanje.getString("besedilo", ""));
+        prebranoBesedilo = shranjenoStanje.getString("prebranoBesedilo", "");
     }
 
     @Override
