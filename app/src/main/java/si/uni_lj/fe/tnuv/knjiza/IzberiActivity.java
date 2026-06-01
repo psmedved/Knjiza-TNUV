@@ -37,6 +37,10 @@ public class IzberiActivity extends MainActivity {
         findViewById(R.id.btn_i_ponovi).setOnClickListener(v -> {startActivity(new Intent(IzberiActivity.this, SlikajActivity.class));});
         findViewById(R.id.btn_i_nadaljuj).setOnClickListener(v -> {
             String izbranoBesedilo = prikazBesedila.getText().toString();
+            if(izbranoBesedilo.trim().isEmpty()) {
+                obvestiloONapaki(getString(R.string.obvestilo_sporocilo_napaka_citat_prazno_izberi));
+                return;
+            }
             Log.d(TAG, izbranoBesedilo);
             Intent odpriShrani = new Intent(IzberiActivity.this, ShraniActivity.class);
             odpriShrani.putExtra("Besedilo", izbranoBesedilo);
@@ -65,6 +69,10 @@ public class IzberiActivity extends MainActivity {
     public void obKlikuNaprej() {
         String izbranoBesedilo = prikazBesedila.getText().toString();
         Log.d(TAG, izbranoBesedilo);
+        if(izbranoBesedilo.trim().isEmpty()) {
+            obvestiloONapaki(getString(R.string.obvestilo_sporocilo_napaka_citat_prazno_izberi));
+            return;
+        }
         Intent odpriShrani = new Intent(IzberiActivity.this, ShraniActivity.class);
         odpriShrani.putExtra("Besedilo", izbranoBesedilo);
         startActivity(odpriShrani);

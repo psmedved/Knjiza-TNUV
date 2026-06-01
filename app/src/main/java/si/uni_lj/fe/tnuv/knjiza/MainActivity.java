@@ -1,10 +1,15 @@
 package si.uni_lj.fe.tnuv.knjiza;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 import androidx.activity.EdgeToEdge;
@@ -75,5 +80,26 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    public void obvestiloONapaki(String sporociloNapake) {
+        Dialog obvestilo = new Dialog(this);
+        obvestilo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        obvestilo.setContentView(R.layout.obvestilo);
+        obvestilo.getWindow().setBackgroundDrawableResource(R.drawable.dialog_ozadje);
+        //obvestilo.setCancelable(false);
+        TextView naslov = obvestilo.findViewById(R.id.naslov_obvestila);
+        naslov.setText(R.string.obvestilo_naslov_napaka);
+        TextView sporocilo = obvestilo.findViewById(R.id.sporocilo_obvestila);
+        sporocilo.setText(sporociloNapake);
+        obvestilo.show();
+        obvestilo.getWindow().setLayout(
+                (int) (getResources().getDisplayMetrics().widthPixels * 0.80),
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        Button potrdi = obvestilo.findViewById(R.id.btn_obvestilo);
+        potrdi.setOnClickListener(v -> {
+            obvestilo.dismiss();
+        });
     }
 }

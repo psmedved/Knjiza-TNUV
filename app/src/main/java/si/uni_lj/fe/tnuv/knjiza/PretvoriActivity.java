@@ -45,6 +45,10 @@ public class PretvoriActivity extends MainActivity {
         bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(true);
 
         findViewById(R.id.btn_p_nadaljuj).setOnClickListener(v -> {
+            if(pretvorjenoBesedilo.trim().isEmpty()) {
+                obvestiloONapaki(getString(R.string.obvestilo_sporocilo_napaka_citat_prazno_izberi));
+                return;
+            }
             Intent odpriIzberi = new Intent(PretvoriActivity.this, IzberiActivity.class);
             odpriIzberi.putExtra("Besedilo", pretvorjenoBesedilo);
             startActivity(odpriIzberi);
@@ -99,6 +103,10 @@ public class PretvoriActivity extends MainActivity {
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         boolean gumbOmogocen = bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).isEnabled();
         if(gumbOmogocen) {
+            if(pretvorjenoBesedilo.trim().isEmpty()) {
+                obvestiloONapaki(getString(R.string.obvestilo_sporocilo_napaka_citat_prazno_izberi));
+                return;
+            }
             Intent odpriIzberi = new Intent(PretvoriActivity.this, IzberiActivity.class);
             odpriIzberi.putExtra("Besedilo", pretvorjenoBesedilo);
             startActivity(odpriIzberi);
