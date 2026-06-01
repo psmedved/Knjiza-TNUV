@@ -39,6 +39,9 @@
     <string name="obvestilo_sporocilo_napaka_leto_prazno">Polje leto je prazno.\nVpišite leto izzida.</string>
     <string name="obvestilo_sporocilo_napaka_leto_predolgo">Polje leto je predolgo. Vpišite veljavno letnico.</string>
     <string name="obvestilo_sporocilo_napaka_leto_ni_stevilka">Polje leto ne vsebuje števila.</string>
+    <string name="obvestilo_sporocilo_napaka_stran_prazno">Polje stran je prazno.\nVpišite številko prebrane strani knjige.</string>
+    <string name="obvestilo_sporocilo_napaka_stran_ni_stevilka">Polje stran ne vsebuje števila.</string>
+
 
 
 </resources>

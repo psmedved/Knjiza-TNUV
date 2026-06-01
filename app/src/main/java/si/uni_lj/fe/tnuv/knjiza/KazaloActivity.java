@@ -80,7 +80,13 @@ public class KazaloActivity extends MainActivity  {
         shrani.setOnClickListener(v -> {
             String vpisKnjiga = vnosnoPoljeKnjiga.getText().toString();
             String vpisStran = vnosnoPoljeStran.getText().toString();
-            Log.d(TAG, vpisStran);
+            boolean[] uporabniskiVnosi = new boolean[2];
+            uporabniskiVnosi[0] = preveriUporabniskiVnos(vnosnoPoljeKnjiga, "s", 0);
+            uporabniskiVnosi[1] = preveriUporabniskiVnos(vnosnoPoljeStran, "i", 1);
+            boolean ovrednotenVnos = ovrednotiUporabniskiVnos(uporabniskiVnosi);
+            if(!ovrednotenVnos) {
+                return;
+            }
             try {
                 FileOutputStream datoteka = openFileOutput(getString(R.string.datoteka_kazala), MODE_APPEND);
                 //Zapisovanje v NDJSON
@@ -127,6 +133,14 @@ public class KazaloActivity extends MainActivity  {
             String vpisKnjiga = vnosnoPoljeKnjiga.getText().toString();
             String vpisAvtor = vnosnoPoljeAvtor.getText().toString();
             String vpisLeto = vnosnoPoljeLeto.getText().toString();
+            boolean[] uporabniskiVnosi = new boolean[3];
+            uporabniskiVnosi[0] = preveriUporabniskiVnos(vnosnoPoljeKnjiga, "s", 0);
+            uporabniskiVnosi[1] = preveriUporabniskiVnos(vnosnoPoljeAvtor, "s", 2);
+            uporabniskiVnosi[2] = preveriUporabniskiVnos(vnosnoPoljeLeto, "i", 3);
+            boolean ovrednotenVnos = ovrednotiUporabniskiVnos(uporabniskiVnosi);
+            if(!ovrednotenVnos) {
+                return;
+            }
             try {
                 FileOutputStream datoteka = openFileOutput(getString(R.string.datoteka_knjiga), MODE_APPEND);
                 //Zapisovanje v NDJSON
@@ -243,6 +257,70 @@ public class KazaloActivity extends MainActivity  {
         naslov.setText(R.string.text_naslov_citat);
         TextView sporocilo = obvestilo.findViewById(R.id.sporocilo_obvestila);
         sporocilo.setText(R.string.text_sporocilo_knjiga);
+        obvestilo.show();
+        obvestilo.getWindow().setLayout(
+                (int) (getResources().getDisplayMetrics().widthPixels * 0.80),
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        Button potrdi = obvestilo.findViewById(R.id.btn_obvestilo);
+        potrdi.setOnClickListener(v -> {
+            obvestilo.dismiss();
+        });
+    }
+
+    public boolean preveriUporabniskiVnos(EditText vnosnoPolje, String zastavica, int indeks) {
+        int[] praznoPolje = {R.string.obvestilo_sporocilo_napaka_knjiga_prazno,R.string.obvestilo_sporocilo_napaka_stran_prazno,R.string.obvestilo_sporocilo_napaka_avtor_prazno, R.string.obvestilo_sporocilo_napaka_leto_prazno};
+        int[] niStevilo = {R.string.obvestilo_sporocilo_napaka_stran_ni_stevilka};
+        String vnos = vnosnoPolje.getText().toString();
+        if(vnos == null || vnos.trim().isEmpty()) {
+            obvestiloONapaki(getString(praznoPolje[indeks]));
+            vnosnoPolje.setText("");
+            return false;
+        }
+        /*if(zastavica.equals("s")) {
+
+        }*/
+        if(zastavica.equals("i")) {
+            if(!jeStevilka(vnos)) {
+                obvestiloONapaki(getString(niStevilo[0]));
+                vnosnoPolje.setText("");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean jeStevilka(String vnos) {
+        for(int i = 0; i < vnos.length(); i++) {
+            int x = vnos.charAt(i);
+            //x < '0' || x > '9' v ASCII vrednostih
+            if(x < 48 || x > 57) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean ovrednotiUporabniskiVnos(boolean[] vnos) {
+        boolean pravilno = true;
+        for(int i = 0; i < vnos.length; i++) {
+            if(!vnos[i]) {
+                return false;
+            }
+        }
+        return pravilno;
+    }
+
+    public void obvestiloONapaki(String sporociloNapake) {
+        Dialog obvestilo = new Dialog(this);
+        obvestilo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        obvestilo.setContentView(R.layout.obvestilo);
+        obvestilo.getWindow().setBackgroundDrawableResource(R.drawable.dialog_ozadje);
+        //obvestilo.setCancelable(false);
+        TextView naslov = obvestilo.findViewById(R.id.naslov_obvestila);
+        naslov.setText(R.string.obvestilo_naslov_napaka);
+        TextView sporocilo = obvestilo.findViewById(R.id.sporocilo_obvestila);
+        sporocilo.setText(sporociloNapake);
         obvestilo.show();
         obvestilo.getWindow().setLayout(
                 (int) (getResources().getDisplayMetrics().widthPixels * 0.80),

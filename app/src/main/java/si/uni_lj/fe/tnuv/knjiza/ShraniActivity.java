@@ -146,7 +146,7 @@ public class ShraniActivity extends MainActivity {
 
     public boolean preveriUporabniskiVnos(String vnos, String zastavica, int indeks) {
         int[] praznoPolje = {R.string.obvestilo_sporocilo_napaka_citat_prazno, R.string.obvestilo_sporocilo_napaka_knjiga_prazno,R.string.obvestilo_sporocilo_napaka_avtor_prazno, R.string.obvestilo_sporocilo_napaka_leto_prazno};
-        int[] niStevilo = {R.string.obvestilo_sporocilo_napaka_leto_predolgo, R.string.obvestilo_sporocilo_napaka_leto_ni_stevilka};
+        int[] niStevilo = {R.string.obvestilo_sporocilo_napaka_leto_ni_stevilka, R.string.obvestilo_sporocilo_napaka_leto_predolgo};
         Log.d(TAG, vnos);
         if(vnos == null || vnos.trim().isEmpty()) {
             obvestiloONapaki(getString(praznoPolje[indeks]));
@@ -172,11 +172,11 @@ public class ShraniActivity extends MainActivity {
         }*/
         if(zastavica.equals("i")) {
             if(!jeStevilka(vnos)) {
-                obvestiloONapaki(getString(niStevilo[1]));
+                obvestiloONapaki(getString(niStevilo[0]));
                 vnosnoPoljeLeto.setText("");
                 return false;
             } else if(vnos.length() > 4) {
-                obvestiloONapaki(getString(niStevilo[0]));
+                obvestiloONapaki(getString(niStevilo[1]));
                 vnosnoPoljeLeto.setText("");
                 return false;
             }
@@ -197,10 +197,8 @@ public class ShraniActivity extends MainActivity {
 
     public boolean ovrednotiUporabniskiVnos(boolean[] vnos) {
         boolean pravilno = true;
-        //int[] sporocila = {R.string.obvestilo_sporocilo_napaka_citat, R.string.obvestilo_sporocilo_napaka_knjiga,R.string.obvestilo_sporocilo_napaka_avtor, R.string.obvestilo_sporocilo_napaka_leto};
         for(int i = 0; i < vnos.length; i++) {
             if(!vnos[i]) {
-                //obvestiloONapaki(getString(sporocila[i]));
                 return false;
             }
         }
