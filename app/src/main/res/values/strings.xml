@@ -32,4 +32,13 @@
     <string name="zacasni_napis_avtor">Vpišite ime avtorja.</string>
     <string name="zacasni_napis_leto">Vpišite letnico izzida. (opcijsko)</string>
     <string name="zacasni_napis_stran">Vpišite številko prebrane strani.</string>
+    <string name="obvestilo_naslov_napaka">Napaka!</string>
+    <string name="obvestilo_sporocilo_napaka_citat_prazno">Polje citat je prazno.\nVpišite citat.</string>
+    <string name="obvestilo_sporocilo_napaka_knjiga_prazno">Polje knjiga je prazno.\nVpišite naslov knjige.</string>
+    <string name="obvestilo_sporocilo_napaka_avtor_prazno">Polje avtor je prazno.\nVpišite avtorja.</string>
+    <string name="obvestilo_sporocilo_napaka_leto_prazno">Polje leto je prazno.\nVpišite leto izzida.</string>
+    <string name="obvestilo_sporocilo_napaka_leto_predolgo">Polje leto je predolgo. Vpišite veljavno letnico.</string>
+    <string name="obvestilo_sporocilo_napaka_leto_ni_stevilka">Polje leto ne vsebuje števila.</string>
+
+
 </resources>

@@ -73,10 +73,19 @@ public class ShraniActivity extends MainActivity {
     }
 
     public void shraniCitat() {
+        boolean[] uporabniskiVnosi = new boolean[4];
         String vpisCitat = vnosnoPoljeCitat.getText().toString();
+        uporabniskiVnosi[0] = preveriUporabniskiVnos(vpisCitat, "s", 0);
         String vpisKnjiga = vnosnoPoljeKnjiga.getText().toString();
+        uporabniskiVnosi[1] = preveriUporabniskiVnos(vpisKnjiga, "s", 1);
         String vpisAvtor = vnosnoPoljeAvtor.getText().toString();
+        uporabniskiVnosi[2] = preveriUporabniskiVnos(vpisAvtor, "s", 2);
         String vpisLeto = vnosnoPoljeLeto.getText().toString();
+        uporabniskiVnosi[3] = preveriUporabniskiVnos(vpisLeto, "i", 3);
+        boolean ovrednotenVnos = ovrednotiUporabniskiVnos(uporabniskiVnosi);
+        if(!ovrednotenVnos) {
+            return;
+        }
         try {
             FileOutputStream datoteka = openFileOutput(getString(R.string.datoteka_citati), MODE_APPEND);
             //Zapisovanje v NDJSON
@@ -133,5 +142,89 @@ public class ShraniActivity extends MainActivity {
         vnosnoPoljeKnjiga.setText("");
         vnosnoPoljeAvtor.setText("");
         vnosnoPoljeLeto.setText("");
+    }
+
+    public boolean preveriUporabniskiVnos(String vnos, String zastavica, int indeks) {
+        int[] praznoPolje = {R.string.obvestilo_sporocilo_napaka_citat_prazno, R.string.obvestilo_sporocilo_napaka_knjiga_prazno,R.string.obvestilo_sporocilo_napaka_avtor_prazno, R.string.obvestilo_sporocilo_napaka_leto_prazno};
+        int[] niStevilo = {R.string.obvestilo_sporocilo_napaka_leto_predolgo, R.string.obvestilo_sporocilo_napaka_leto_ni_stevilka};
+        Log.d(TAG, vnos);
+        if(vnos == null || vnos.trim().isEmpty()) {
+            obvestiloONapaki(getString(praznoPolje[indeks]));
+            switch(indeks) {
+                case 0:
+                    vnosnoPoljeCitat.setText("");
+                    break;
+                case 1:
+                    vnosnoPoljeKnjiga.setText("");
+                    break;
+                case 2:
+                    vnosnoPoljeAvtor.setText("");
+                    break;
+                case 3:
+                    vnosnoPoljeLeto.setText("");
+                    break;
+                default:
+            }
+            return false;
+        }
+        /*if(zastavica.equals("s")) {
+
+        }*/
+        if(zastavica.equals("i")) {
+            if(!jeStevilka(vnos)) {
+                obvestiloONapaki(getString(niStevilo[1]));
+                vnosnoPoljeLeto.setText("");
+                return false;
+            } else if(vnos.length() > 4) {
+                obvestiloONapaki(getString(niStevilo[0]));
+                vnosnoPoljeLeto.setText("");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean jeStevilka(String vnos) {
+        for(int i = 0; i < vnos.length(); i++) {
+            int x = vnos.charAt(i);
+            //x < '0' || x > '9' v ASCII vrednostih
+            if(x < 48 || x > 57) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean ovrednotiUporabniskiVnos(boolean[] vnos) {
+        boolean pravilno = true;
+        //int[] sporocila = {R.string.obvestilo_sporocilo_napaka_citat, R.string.obvestilo_sporocilo_napaka_knjiga,R.string.obvestilo_sporocilo_napaka_avtor, R.string.obvestilo_sporocilo_napaka_leto};
+        for(int i = 0; i < vnos.length; i++) {
+            if(!vnos[i]) {
+                //obvestiloONapaki(getString(sporocila[i]));
+                return false;
+            }
+        }
+        return pravilno;
+    }
+
+    public void obvestiloONapaki(String sporociloNapake) {
+        Dialog obvestilo = new Dialog(this);
+        obvestilo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        obvestilo.setContentView(R.layout.obvestilo);
+        obvestilo.getWindow().setBackgroundDrawableResource(R.drawable.dialog_ozadje);
+        //obvestilo.setCancelable(false);
+        TextView naslov = obvestilo.findViewById(R.id.naslov_obvestila);
+        naslov.setText(R.string.obvestilo_naslov_napaka);
+        TextView sporocilo = obvestilo.findViewById(R.id.sporocilo_obvestila);
+        sporocilo.setText(sporociloNapake);
+        obvestilo.show();
+        obvestilo.getWindow().setLayout(
+                (int) (getResources().getDisplayMetrics().widthPixels * 0.80),
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        Button potrdi = obvestilo.findViewById(R.id.btn_obvestilo);
+        potrdi.setOnClickListener(v -> {
+            obvestilo.dismiss();
+        });
     }
 }
