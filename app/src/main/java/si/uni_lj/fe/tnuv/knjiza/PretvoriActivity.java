@@ -44,6 +44,7 @@ public class PretvoriActivity extends MainActivity {
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
         bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(true);
 
+        findViewById(R.id.btn_p_ponovi).setOnClickListener(v -> finish());
         findViewById(R.id.btn_p_nadaljuj).setOnClickListener(v -> {
             if(pretvorjenoBesedilo.trim().isEmpty()) {
                 obvestiloONapaki(getString(R.string.obvestilo_sporocilo_napaka_citat_prazno_izberi));
