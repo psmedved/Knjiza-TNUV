@@ -17,9 +17,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class CitatPodrobnoActivity extends MainActivity  {
+public class CitatPoglejActivity extends MainActivity  {
 
-    private static final String TAG = CitatPodrobnoActivity.class.getSimpleName();
+    private static final String TAG = CitatPoglejActivity.class.getSimpleName();
     private ArrayList<Citat> seznamCitatov;
     private ListView prikazovalnikCitatov;
     private int indeksCitata;
@@ -30,7 +30,7 @@ public class CitatPodrobnoActivity extends MainActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_citat_podrobno);
+        setContentView(R.layout.activity_citat_poglej);
         poimenujStran(R.string.text_citat);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -42,11 +42,17 @@ public class CitatPodrobnoActivity extends MainActivity  {
         bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(false);
         prikazovalnikCitatov = findViewById(R.id.seznam_citatov_knjige);
         prikazovalnikCitatov.setOnItemClickListener((aV, v, indeks, id) -> {
-            Intent odpriCitatPodrobno = new Intent(CitatPodrobnoActivity.this, CitatPodrobnoActivity.class);
-            odpriCitatPodrobno.putExtra("indeks", preslikavaIndeksov.get(indeks).get(indeks));
-            startActivity(odpriCitatPodrobno);
+            Intent odpriCitatPoglej = new Intent(CitatPoglejActivity.this, CitatPoglejActivity.class);
+            odpriCitatPoglej.putExtra("indeks", preslikavaIndeksov.get(indeks).get(indeks));
+            startActivity(odpriCitatPoglej);
         });
         indeksCitata = getIntent().getIntExtra("indeks", -1);
+
+        findViewById(R.id.btn_c_uredi).setOnClickListener(v -> {
+            Intent odpriCitatUredi = new Intent(CitatPoglejActivity.this, CitatUrediActivity.class);
+            odpriCitatUredi.putExtra("indeks", indeksCitata);
+            startActivity(odpriCitatUredi);
+        });
     }
 
     @Override

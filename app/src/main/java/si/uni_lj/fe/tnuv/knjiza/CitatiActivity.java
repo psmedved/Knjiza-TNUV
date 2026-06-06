@@ -3,13 +3,8 @@ package si.uni_lj.fe.tnuv.knjiza;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
@@ -17,8 +12,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,9 +38,9 @@ public class CitatiActivity extends MainActivity  {
         bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(false);
         prikazovalnikCitatov = findViewById(R.id.seznam_citatov);
         prikazovalnikCitatov.setOnItemClickListener((aV, v, indeks, id) -> {
-            Intent odpriCitatPodrobno = new Intent(CitatiActivity.this, CitatPodrobnoActivity.class);
-            odpriCitatPodrobno.putExtra("indeks", indeks);
-            startActivity(odpriCitatPodrobno);
+            Intent odpriCitatPoglej = new Intent(CitatiActivity.this, CitatPoglejActivity.class);
+            odpriCitatPoglej.putExtra("indeks", indeks);
+            startActivity(odpriCitatPoglej);
         });
     }
 
@@ -62,9 +55,9 @@ public class CitatiActivity extends MainActivity  {
     @Override
     public void obKlikuNaprej(){
         //metoda je drugačna v vsaki aktivnosti, na domači strani ne pripelje nikamor
-        Intent odpriCitatPodrobno = new Intent(CitatiActivity.this, CitatPodrobnoActivity.class);
-        //odpriCitatPodrobno.putExtra("slika", bitniTok);
-        startActivity(odpriCitatPodrobno);
+        Intent odpriCitatPoglej = new Intent(CitatiActivity.this, CitatPoglejActivity.class);
+        //odpriCitatPoglej.putExtra("slika", bitniTok);
+        startActivity(odpriCitatPoglej);
     }
 
     private void prikaziPodatke() {

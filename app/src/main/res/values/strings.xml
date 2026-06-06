@@ -35,6 +35,8 @@
     <string name="zacasni_napis_leto">Vpišite letnico izzida. (opcijsko)</string>
     <string name="zacasni_napis_stran">Vpišite številko prebrane strani.</string>
     <string name="obvestilo_naslov_napaka">Napaka!</string>
+    <string name="obvestilo_naslov_zavrzi">Pozor!</string>
+    <string name="obvestilo_sporocilo_zavrzi">Spremembe niso shranjene in bodo izgubljene.</string>
     <string name="obvestilo_sporocilo_napaka_citat_prazno">Polje citat je prazno.\nVpišite citat.</string>
     <string name="obvestilo_sporocilo_napaka_citat_prazno_izberi">Polje citat je prazno.\nVpišite citat ali ga ponovno slikajte.</string>
     <string name="obvestilo_sporocilo_napaka_knjiga_prazno">Polje knjiga je prazno.\nVpišite naslov knjige.</string>

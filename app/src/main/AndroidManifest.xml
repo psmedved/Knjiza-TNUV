@@ -51,7 +51,11 @@
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
-            android:name=".CitatPodrobnoActivity"
+            android:name=".CitatPoglejActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".CitatUrediActivity"
             android:parentActivityName=".MainActivity">
         </activity>
     </application>
