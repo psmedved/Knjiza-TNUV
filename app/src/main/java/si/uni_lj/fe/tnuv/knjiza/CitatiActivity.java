@@ -43,16 +43,12 @@ public class CitatiActivity extends MainActivity  {
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
         bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(false);
-        ListView seznamCitatov = findViewById(R.id.seznam_citatov);
-        seznamCitatov.setOnItemClickListener((aV, v, indeks, id) -> {
+        prikazovalnikCitatov = findViewById(R.id.seznam_citatov);
+        prikazovalnikCitatov.setOnItemClickListener((aV, v, indeks, id) -> {
             Intent odpriCitatPodrobno = new Intent(CitatiActivity.this, CitatPodrobnoActivity.class);
             odpriCitatPodrobno.putExtra("indeks", indeks);
             startActivity(odpriCitatPodrobno);
         });
-
-        prikazovalnikCitatov = findViewById(R.id.seznam_citatov);
-
-
     }
 
     @Override
@@ -86,8 +82,8 @@ public class CitatiActivity extends MainActivity  {
                     this,
                     seznamZaAdapter,
                     R.layout.citat_element_seznama,
-                    new String[] {"knjiga", "avtor"},
-                    new int[] {R.id.izpis_knjiga_citati, R.id.izpis_avtor_citati}
+                    new String[] {"knjiga", "avtor", "citat"},
+                    new int[] {R.id.izpis_knjiga_citati, R.id.izpis_avtor_citati, R.id.izpis_citat_citati}
             );
             prikazovalnikCitatov.setAdapter(pretvornikIzgleda);
             Log.d(TAG, "Izpis podatkov citatov");

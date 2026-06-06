@@ -43,10 +43,13 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="25dp"
                     android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     android:text="@string/text_kazalo" />
 
                 <Button
@@ -80,10 +83,13 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginLeft="25dp"
                     android:layout_gravity="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     android:text="@string/text_knjige" />
 
                 <Button
