@@ -34,44 +34,68 @@
         <!--Zgornje okno vsebine-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="7dp">
 
                 <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:text="@string/text_kazalo" />
-
-                <Button
-                    android:id="@+id/btn_k_dodaj_kazalo"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:drawableLeft="@drawable/add_24"
-                    android:text="@string/navigacija_dodaj"
-                    style="@style/gumbiStil"/>
+                    android:id="@+id/citat_naslov"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/citat_avtor"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
             </LinearLayout>
-
-            <ListView
-                android:id="@+id/seznam_kazala"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1">
-            </ListView>
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp">
+                <TextView
+                    android:id="@+id/citat_citat"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_c_uredi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/edit_24"
+                    android:text="@string/navigacija_uredi"
+                    style="@style/gumbiStil"/>
+            </LinearLayout>
         </LinearLayout>
 
         <!--Spodnje okno vsebine-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -83,26 +107,19 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:text="@string/text_knjige" />
+                    android:layout_marginLeft="7dp"
+                    android:gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="@string/text_naslov_citati_knjige" />
+            </LinearLayout>
 
-                <Button
-                    android:id="@+id/btn_k_dodaj_knjigo"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:drawableLeft="@drawable/add_24"
-                    android:text="@string/navigacija_dodaj"
-                    style="@style/gumbiStil"/>
-                </LinearLayout>
-
-                <ListView
-                    android:id="@+id/seznam_knjige"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
-                </ListView>
+            <ListView
+                android:id="@+id/seznam_citatov_knjige"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+            </ListView>
         </LinearLayout>
     </LinearLayout>
 

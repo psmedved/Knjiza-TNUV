@@ -50,6 +50,10 @@
             android:name=".ShraniActivity"
             android:parentActivityName=".MainActivity">
         </activity>
+        <activity
+            android:name=".CitatPodrobnoActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -10,12 +10,14 @@
     <string name="text_izberi">Izberi</string>
     <string name="text_shrani">Shrani</string>
     <string name="text_knjige">Prebrane knjige</string>
+    <string name="text_citat">Citat</string>
     <string name="text_naslov_citat">Shranjeno</string>
     <string name="text_sporocilo_citat">Citat je shranjen.</string>
     <string name="text_sporocilo_kazalo">Kazalo je shranjeno.</string>
     <string name="text_sporocilo_knjiga">Prebrana knjiga je shranjena.</string>
     <string name="text_naslov_kazalo">Dodaj kazalo strani</string>
     <string name="text_naslov_knjiga">Dodaj prebrano knjigo</string>
+    <string name="text_naslov_citati_knjige">Drugi citati iz te knjige</string>
     <string name="navigacija_nazaj">Nazaj</string>
     <string name="navigacija_domov">Domov</string>
     <string name="navigacija_potrdi">Ok</string>
@@ -23,8 +25,8 @@
     <string name="navigacija_naprej">Naprej</string>
     <string name="navigacija_ponovi">Ponovno slikaj</string>
     <string name="navigacija_nadaljuj">Nadaljuj</string>
-    <string name="navigacija_dodaj_kazalo">Dodaj</string>
-    <string name="navigacija_dodaj_knjigo">Dodaj</string>
+    <string name="navigacija_dodaj">Dodaj</string>
+    <string name="navigacija_uredi">Uredi</string>
     <string name="navigacija_preklici">Prekliči</string>
     <string name="navigacija_nov_citat">Nov citat</string>
     <string name="zacasni_napis_komentar">Vpišite komentar. (opcijsko)</string>

@@ -25,7 +25,7 @@ public class PreberiPodatke {
             String vrstica;
             while ((vrstica = bralnik.readLine()) != null) {
                 seznamCitatov.add(pretvoriVRazredCitat(vrstica));
-                //Log.d(TAG, "Prebrano-citati", vrstica);
+                //Log.d(TAG, "Prebrano-citati: " + vrstica);
             }
             bralnik.close();
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public class PreberiPodatke {
             String vrstica;
             while ((vrstica = bralnik.readLine()) != null) {
                 seznamKazal.add(pretvoriVRazredKazalo(vrstica));
-                //Log.d(TAG,"Prebrano-kazala", vrstica);
+                //Log.d(TAG,"Prebrano-kazala: " + vrstica);
             }
             bralnik.close();
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class PreberiPodatke {
             String vrstica;
             while ((vrstica = bralnik.readLine()) != null) {
                 seznamKnjig.add(pretvoriVRazredKnjiga(vrstica));
-                //Log.d(TAG,"Prebrano-knjige", vrstica);
+                //Log.d(TAG,"Prebrano-knjige: " + vrstica);
             }
             bralnik.close();
         } catch (Exception e) {
