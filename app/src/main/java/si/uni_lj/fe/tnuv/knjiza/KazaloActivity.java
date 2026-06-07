@@ -272,7 +272,7 @@ public class KazaloActivity extends MainActivity  {
         int[] praznoPolje = {R.string.obvestilo_sporocilo_napaka_knjiga_prazno,R.string.obvestilo_sporocilo_napaka_stran_prazno,R.string.obvestilo_sporocilo_napaka_avtor_prazno, R.string.obvestilo_sporocilo_napaka_leto_prazno};
         int[] niStevilo = {R.string.obvestilo_sporocilo_napaka_stran_ni_stevilka};
         String vnos = vnosnoPolje.getText().toString();
-        if(vnos == null || vnos.trim().isEmpty()) {
+        if(vnos.trim().isEmpty()) {
             obvestiloONapaki(getString(praznoPolje[indeks]));
             vnosnoPolje.setText("");
             return false;

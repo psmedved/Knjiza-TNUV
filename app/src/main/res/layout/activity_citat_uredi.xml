@@ -51,6 +51,7 @@
                     android:gravity="center_vertical"
                     android:textSize="20sp"
                     android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/citat_avtor_uredi"
                     android:layout_width="match_parent"
@@ -66,6 +67,7 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp">
+
                 <EditText
                     android:id="@+id/citat_citat_uredi"
                     android:layout_width="match_parent"
@@ -114,6 +116,7 @@
                     android:drawableTop="@drawable/cancel_24"
                     android:text="@string/navigacija_preklici"
                     style="@style/gumbiStil"/>
+
                 <Button
                     android:id="@+id/btn_u_shrani"
                     android:layout_width="0dp"

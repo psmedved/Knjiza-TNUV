@@ -5,14 +5,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -36,6 +33,7 @@ public class CitatiActivity extends MainActivity  {
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
         bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(false);
+
         prikazovalnikCitatov = findViewById(R.id.seznam_citatov);
         prikazovalnikCitatov.setOnItemClickListener((aV, v, indeks, id) -> {
             Intent odpriCitatPoglej = new Intent(CitatiActivity.this, CitatPoglejActivity.class);

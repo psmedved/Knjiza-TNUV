@@ -1,12 +1,9 @@
 package si.uni_lj.fe.tnuv.knjiza;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -42,10 +39,7 @@ public class IzberiActivity extends MainActivity {
                 return;
             }
             bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(true);
-            Log.d(TAG, izbranoBesedilo);
-            /*Intent odpriShrani = new Intent(IzberiActivity.this, ShraniActivity.class);
-            odpriShrani.putExtra("Besedilo", izbranoBesedilo);
-            startActivity(odpriShrani);*/
+            //Log.d(TAG, izbranoBesedilo);
         });
         prebranoBesedilo = getIntent().getStringExtra("Besedilo");
         prikazBesedila = findViewById(R.id.polje_besedilo_izberi);

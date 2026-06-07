@@ -6,14 +6,11 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,8 +20,7 @@ public class CitatPoglejActivity extends MainActivity  {
     private ArrayList<Citat> seznamCitatov;
     private ListView prikazovalnikCitatov;
     private int indeksCitata;
-
-   private ArrayList<HashMap<Integer, Integer>> preslikavaIndeksov;
+    private ArrayList<HashMap<Integer, Integer>> preslikavaIndeksov;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +36,7 @@ public class CitatPoglejActivity extends MainActivity  {
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
         bottomAppMenu.setOnItemSelectedListener(this::obKlikuSpodnjeNavigacijskeVrstice);
         bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(false);
+
         prikazovalnikCitatov = findViewById(R.id.seznam_citatov_knjige);
         prikazovalnikCitatov.setOnItemClickListener((aV, v, indeks, id) -> {
             Intent odpriCitatPoglej = new Intent(CitatPoglejActivity.this, CitatPoglejActivity.class);
@@ -47,7 +44,6 @@ public class CitatPoglejActivity extends MainActivity  {
             startActivity(odpriCitatPoglej);
         });
         indeksCitata = getIntent().getIntExtra("indeks", -1);
-
         findViewById(R.id.btn_c_uredi).setOnClickListener(v -> {
             Intent odpriCitatUredi = new Intent(CitatPoglejActivity.this, CitatUrediActivity.class);
             odpriCitatUredi.putExtra("indeks", indeksCitata);

@@ -1,7 +1,6 @@
 package si.uni_lj.fe.tnuv.knjiza;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -10,25 +9,18 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import org.json.JSONObject;
-
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class CitatUrediActivity extends MainActivity  {
 
@@ -39,8 +31,6 @@ public class CitatUrediActivity extends MainActivity  {
     private EditText vnosnoPoljeKnjiga;
     private EditText vnosnoPoljeAvtor;
     private EditText vnosnoPoljeLeto;
-
-   private ArrayList<HashMap<Integer, Integer>> preslikavaIndeksov;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -187,7 +177,7 @@ public class CitatUrediActivity extends MainActivity  {
         int[] praznoPolje = {R.string.obvestilo_sporocilo_napaka_citat_prazno, R.string.obvestilo_sporocilo_napaka_knjiga_prazno,R.string.obvestilo_sporocilo_napaka_avtor_prazno, R.string.obvestilo_sporocilo_napaka_leto_prazno};
         int[] niStevilo = {R.string.obvestilo_sporocilo_napaka_leto_ni_stevilka, R.string.obvestilo_sporocilo_napaka_leto_predolgo};
         Log.d(TAG, vnos);
-        if(vnos == null || vnos.trim().isEmpty()) {
+        if(vnos.trim().isEmpty()) {
             obvestiloONapaki(getString(praznoPolje[indeks]));
             switch(indeks) {
                 case 0:

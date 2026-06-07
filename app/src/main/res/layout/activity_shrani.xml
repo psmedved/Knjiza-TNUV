@@ -107,6 +107,7 @@
                     android:drawableTop="@drawable/cancel_24"
                     android:text="@string/navigacija_preklici"
                     style="@style/gumbiStil"/>
+
                 <Button
                     android:id="@+id/btn_s_shrani"
                     android:layout_width="0dp"

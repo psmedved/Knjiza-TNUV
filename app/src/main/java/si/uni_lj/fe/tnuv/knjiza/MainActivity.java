@@ -3,15 +3,12 @@ package si.uni_lj.fe.tnuv.knjiza;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.activity.EdgeToEdge;
@@ -30,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             //v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
             return insets;
         });
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         Toolbar topAppMenu = findViewById(R.id.top_app_bar_menu);
         setSupportActionBar(topAppMenu);
         BottomNavigationView bottomAppMenu = findViewById(R.id.bottom_app_bar_menu);
@@ -63,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void obKlikuNaprej(){
         //metoda je drugačna v vsaki aktivnosti, na domači strani ne pripelje nikamor
-        Toast.makeText(this, "Uporabi gumbe.", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Uporabi gumbe.", Toast.LENGTH_LONG).show();
     }
     public boolean obKlikuSpodnjeNavigacijskeVrstice(MenuItem element) {
         int idGumba = element.getItemId();

@@ -37,6 +37,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center">
+
             <EditText
                 android:id="@+id/polje_besedilo_izberi"
                 android:layout_width="wrap_content"
@@ -51,9 +52,11 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <EditText
                     android:id="@+id/polje_komentar_izberi"
                     android:layout_width="match_parent"

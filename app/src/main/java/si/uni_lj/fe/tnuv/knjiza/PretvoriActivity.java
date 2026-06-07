@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -51,9 +50,6 @@ public class PretvoriActivity extends MainActivity {
                 return;
             }
             bottomAppMenu.getMenu().findItem(R.id.btn_n_naprej).setEnabled(true);
-            /*Intent odpriIzberi = new Intent(PretvoriActivity.this, IzberiActivity.class);
-            odpriIzberi.putExtra("Besedilo", pretvorjenoBesedilo);
-            startActivity(odpriIzberi);*/
         });
         //Prikaz zajete slike
         bitniTok = getIntent().getByteArrayExtra("slika");

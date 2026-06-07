@@ -11,6 +11,9 @@
     <string name="text_shrani">Shrani</string>
     <string name="text_knjige">Prebrane knjige</string>
     <string name="text_citat">Citat</string>
+    <string name="text_naslov">Naslov</string>
+    <string name="text_avtor">Avtor</string>
+    <string name="text_stran">Stran</string>
     <string name="text_naslov_citat">Shranjeno</string>
     <string name="text_sporocilo_citat">Citat je shranjen.</string>
     <string name="text_sporocilo_kazalo">Kazalo je shranjeno.</string>

@@ -148,7 +148,7 @@ public class ShraniActivity extends MainActivity {
         int[] praznoPolje = {R.string.obvestilo_sporocilo_napaka_citat_prazno, R.string.obvestilo_sporocilo_napaka_knjiga_prazno,R.string.obvestilo_sporocilo_napaka_avtor_prazno, R.string.obvestilo_sporocilo_napaka_leto_prazno};
         int[] niStevilo = {R.string.obvestilo_sporocilo_napaka_leto_ni_stevilka, R.string.obvestilo_sporocilo_napaka_leto_predolgo};
         Log.d(TAG, vnos);
-        if(vnos == null || vnos.trim().isEmpty()) {
+        if(vnos.trim().isEmpty()) {
             obvestiloONapaki(getString(praznoPolje[indeks]));
             switch(indeks) {
                 case 0:

@@ -54,7 +54,7 @@ public class SlikajActivity extends MainActivity  {
                 Log.e("Camera", "No data returned from camera");
                 return;
             }
-            Bitmap slika = (Bitmap) zajetaSlika.getExtras().get("data");;
+            Bitmap slika = (Bitmap) zajetaSlika.getExtras().get("data");
             if (slika == null) {
                 Log.e("Camera", "Bitmap is null");
                 return;

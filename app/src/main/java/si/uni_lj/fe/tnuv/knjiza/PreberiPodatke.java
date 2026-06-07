@@ -1,7 +1,6 @@
 package si.uni_lj.fe.tnuv.knjiza;
 
 import android.app.Activity;
-import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.BufferedReader;
