@@ -39,8 +39,9 @@ android:padding="10dp">
             android:id="@+id/izpis_citat_citati"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="Citat"
+            android:textColor="@color/black"
             android:maxLines="3"
-            android:ellipsize="end"/>
+            android:ellipsize="end"
+            android:text="Citat"/>
     </LinearLayout>
 </LinearLayout>

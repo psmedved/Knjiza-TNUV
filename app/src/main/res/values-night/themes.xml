@@ -2,6 +2,12 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Knjiza" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- <item name="colorPrimary">@color/black</item> -->
+        <item name="background">@color/ozadjeAplikacije</item>
+        <item name="bottomNavigationStyle">@style/bottomNavigacijaStil</item>
+        <item name="android:windowBackground">@color/ozadjeAplikacije</item>
+        <item name="android:statusBarColor">@color/ozadjeAplikacije</item>
+        <item name="android:navigationBarColor">@color/ozadjeAplikacije</item>
     </style>
+    <style name="Theme.Knjiza" parent="Base.Theme.Knjiza" />
 </resources>

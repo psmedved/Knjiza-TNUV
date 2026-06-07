@@ -27,4 +27,9 @@
         <item name="android:drawableTint">@color/gumbBarvaVsebina</item>
         <item name="android:backgroundTint">@color/gumbBarvaOzadje</item>
     </style>
+
+    <style name="topNavigacijaNaslov" parent="">
+        <item name="titleTextColor">@android:color/black</item>
+        <item name="subtitleTextColor">@android:color/black</item>
+    </style>
 </resources>
