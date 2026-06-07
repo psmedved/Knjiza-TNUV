@@ -21,6 +21,7 @@
     <string name="navigacija_nazaj">Nazaj</string>
     <string name="navigacija_domov">Domov</string>
     <string name="navigacija_potrdi">Ok</string>
+    <string name="navigacija_potrdi_potrdi">Potrdi</string>
     <string name="navigacija_shrani">Shrani</string>
     <string name="navigacija_naprej">Naprej</string>
     <string name="navigacija_ponovi">Ponovno slikaj</string>

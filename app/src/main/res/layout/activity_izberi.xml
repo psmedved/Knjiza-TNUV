@@ -91,8 +91,8 @@
                     android:layout_marginBottom="0dp"
                     android:padding="15dp"
                     android:layout_weight="1"
-                    android:drawableTop="@drawable/forward_24"
-                    android:text="@string/navigacija_nadaljuj"
+                    android:drawableTop="@drawable/check_24"
+                    android:text="@string/navigacija_potrdi_potrdi"
                     style="@style/gumbiStil"/>
             </LinearLayout>
         </LinearLayout>

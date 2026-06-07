@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean obKlikuSpodnjeNavigacijskeVrstice(MenuItem element) {
         int idGumba = element.getItemId();
         if (idGumba == R.id.btn_n_nazaj) {
-            Toast.makeText(this, R.string.navigacija_nazaj, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, R.string.navigacija_nazaj, Toast.LENGTH_SHORT).show();
             finish();
             return true;
         } else if (idGumba == R.id.btn_n_domov) {
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
             return true;
         } else if (idGumba == R.id.btn_n_naprej) {
-            Toast.makeText(this, R.string.navigacija_naprej, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, R.string.navigacija_naprej, Toast.LENGTH_SHORT).show();
             obKlikuNaprej();
             return true;
         }
