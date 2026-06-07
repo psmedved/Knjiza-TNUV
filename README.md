@@ -1,7 +1,7 @@
 # $${\color{#F4C430}Knjiza}$$ <p align="center"> <img src="app/src/main/res/drawable/knjiza_ikona_960.png" width="100" height="100"> </p>
 
 $$
-\textcolor{#F4C430}{Knjiga} \space
+\textcolor{#F4C430}{Knjiza} \space
 \textcolor{#5C5749}{-} \space
 \textcolor{#F4C430}{Knji}\textcolor{#5C5749}{žni} \space
 \textcolor{#F4C430}{za}\textcolor{#5C5749}{znamki,} \space
