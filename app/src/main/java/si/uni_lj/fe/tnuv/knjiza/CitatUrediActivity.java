@@ -65,7 +65,6 @@ public class CitatUrediActivity extends MainActivity  {
     }
 
     public void urediInShraniCitat() {
-        Citat vpis = seznamCitatov.get(indeksCitata);
         boolean[] uporabniskiVnosi = new boolean[4];
         String vpisCitat = vnosnoPoljeCitat.getText().toString();
         uporabniskiVnosi[0] = preveriUporabniskiVnos(vpisCitat, "s", 0);

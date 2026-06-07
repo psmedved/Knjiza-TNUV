@@ -50,6 +50,9 @@ public class KazaloActivity extends MainActivity  {
         findViewById(R.id.btn_k_dodaj_knjigo).setOnClickListener(v -> shraniKnjigo());
         prikazovalnikKazala = findViewById(R.id.seznam_kazala);
         prikazovalnikKnjige = findViewById(R.id.seznam_knjige);
+        prikazovalnikKazala.setOnItemClickListener((aV, v, indeks, id) -> {
+            urediInShraniKazalo(indeks);
+        });
     }
 
     @Override
@@ -91,10 +94,10 @@ public class KazaloActivity extends MainActivity  {
                 FileOutputStream datoteka = openFileOutput(getString(R.string.datoteka_kazala), MODE_APPEND);
                 //Zapisovanje v NDJSON
                 OutputStreamWriter zapisovalec = new OutputStreamWriter(datoteka, StandardCharsets.UTF_8);
-                JSONObject objektCitat = new JSONObject();
-                objektCitat.put("knjiga", vpisKnjiga);
-                objektCitat.put("stran", vpisStran);
-                zapisovalec.write(objektCitat.toString());
+                JSONObject objektKazalo = new JSONObject();
+                objektKazalo.put("knjiga", vpisKnjiga);
+                objektKazalo.put("stran", vpisStran);
+                zapisovalec.write(objektKazalo.toString());
                 zapisovalec.write("\n");
                 zapisovalec.close();
                 dodajKazalo.dismiss();
@@ -107,6 +110,71 @@ public class KazaloActivity extends MainActivity  {
         });
         preklici.setOnClickListener(v -> {
             dodajKazalo.dismiss();
+            seznamKazala = bralnik.preberiKazala();
+            prikaziPodatkeKazalo();
+        });
+    }
+
+    public void  urediInShraniKazalo(int indeks) {
+        Kazalo kazalo = seznamKazala.get(indeks);
+        Dialog urediKazalo = new Dialog(this);
+        urediKazalo.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        urediKazalo.setContentView(R.layout.dodaj_kazalo);
+        urediKazalo.getWindow().setBackgroundDrawableResource(R.drawable.dialog_ozadje);
+        urediKazalo.setCancelable(false);
+        urediKazalo.show();
+        urediKazalo.getWindow().setLayout(
+                (int) (getResources().getDisplayMetrics().widthPixels * 0.91),
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        Button shrani = urediKazalo.findViewById(R.id.btn_k_kazalo_shrani);
+        Button preklici = urediKazalo.findViewById(R.id.btn_k_kazalo_preklici);
+        EditText vnosnoPoljeKnjiga = urediKazalo.findViewById(R.id.polje_knjiga_kazalo);
+        EditText vnosnoPoljeStran = urediKazalo.findViewById(R.id.polje_stran_kazalo);
+        vnosnoPoljeKnjiga.setText(kazalo.getKnjiga());
+        vnosnoPoljeStran.setText(kazalo.getStranToString());
+
+        shrani.setOnClickListener(v -> {
+            String vpisKnjiga = vnosnoPoljeKnjiga.getText().toString();
+            String vpisStran = vnosnoPoljeStran.getText().toString();
+            boolean[] uporabniskiVnosi = new boolean[2];
+            uporabniskiVnosi[0] = preveriUporabniskiVnos(vnosnoPoljeKnjiga, "s", 0);
+            uporabniskiVnosi[1] = preveriUporabniskiVnos(vnosnoPoljeStran, "i", 1);
+            boolean ovrednotenVnos = ovrednotiUporabniskiVnos(uporabniskiVnosi);
+            if(!ovrednotenVnos) {
+                return;
+            }
+            try {
+                FileOutputStream datoteka = openFileOutput(getString(R.string.datoteka_kazala), MODE_PRIVATE);
+                //Zapisovanje v NDJSON
+                OutputStreamWriter zapisovalec = new OutputStreamWriter(datoteka, StandardCharsets.UTF_8);
+                int vrstica = 0;
+                for(Kazalo k : seznamKazala) {
+                    JSONObject objektKazalo = new JSONObject();
+                    if(vrstica == indeks) {
+                        objektKazalo.put("knjiga", vpisKnjiga);
+                        objektKazalo.put("stran", vpisStran);
+                        zapisovalec.write(objektKazalo.toString());
+                        zapisovalec.write("\n");
+                    } else {
+                        objektKazalo.put("knjiga", k.getKnjiga());
+                        objektKazalo.put("stran", k.getStranToString());
+                        zapisovalec.write(objektKazalo.toString());
+                        zapisovalec.write("\n");
+                    }
+                    vrstica++;
+                }
+                zapisovalec.close();
+                urediKazalo.dismiss();
+                potrdiSranjevanjeKazala();
+                seznamKazala = bralnik.preberiKazala();
+                prikaziPodatkeKazalo();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        preklici.setOnClickListener(v -> {
+            urediKazalo.dismiss();
             seznamKazala = bralnik.preberiKazala();
             prikaziPodatkeKazalo();
         });
@@ -145,11 +213,11 @@ public class KazaloActivity extends MainActivity  {
                 FileOutputStream datoteka = openFileOutput(getString(R.string.datoteka_knjiga), MODE_APPEND);
                 //Zapisovanje v NDJSON
                 OutputStreamWriter zapisovalec = new OutputStreamWriter(datoteka, StandardCharsets.UTF_8);
-                JSONObject objektCitat = new JSONObject();
-                objektCitat.put("knjiga", vpisKnjiga);
-                objektCitat.put("avtor", vpisAvtor);
-                objektCitat.put("leto", vpisLeto);
-                zapisovalec.write(objektCitat.toString());
+                JSONObject objektKnjiga = new JSONObject();
+                objektKnjiga.put("knjiga", vpisKnjiga);
+                objektKnjiga.put("avtor", vpisAvtor);
+                objektKnjiga.put("leto", vpisLeto);
+                zapisovalec.write(objektKnjiga.toString());
                 zapisovalec.write("\n");
                 zapisovalec.close();
                 dodajKnjigo.dismiss();
